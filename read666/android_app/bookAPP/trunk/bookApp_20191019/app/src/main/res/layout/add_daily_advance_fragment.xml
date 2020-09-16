@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.daily_advance.daily_home.AddDailyViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.tchy.syh.custom.toolbar.CustomToolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isShowRightButton="false"
+                app:toolbarTitle="发布日精进"
+                app:isShowLeftButton="true"
+                app:leftButtonIcon="@mipmap/back_black_small"
+                >
+
+            </com.tchy.syh.custom.toolbar.CustomToolbar>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="写点啥...."
+                android:textColorHint="#AAAAAA"
+                android:textSize="15dip"
+                android:inputType="textMultiLine"
+                android:gravity="left|top"
+                android:minLines="5"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5000"
+                android:textColor="#AAAAAA"
+                android:textSize="16dp"
+                android:textStyle="bold|italic"
+                android:gravity="end"
+                android:paddingEnd="20dp"/>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.tchy.syh.book.book_detail.audio.BookDetailAudioPageVm" />
+        <import type="com.tchy.syh.utils.TimeFormatUtil" />
+
+        <variable
+            name="vm"
+            type="BookDetailAudioPageVm" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="120dp"
+
+            android:layout_height="120dp"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:civ_border_color="@color/dividerColorThemeLight"
+            binding:civ_border_width="1dp"
+            binding:urlNoAnim="@{vm.dataBean.pic}"
+
+            binding:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/progressBar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:max="100"
+            android:progress="@{vm.duration!=0?vm.current*100/vm.duration:0}"
+            android:progressBackgroundTint="@color/textColorThemeLight"
+            android:progressTint="@color/colorAccentThemeLight"
+            android:secondaryProgress="0"
+            android:secondaryProgressTint="#000000"
+
+            binding:layout_constraintEnd_toStartOf="@+id/tvTotalTime"
+            binding:layout_constraintHorizontal_bias="0.5"
+            binding:layout_constraintStart_toEndOf="@+id/tvPlayTime"
+            binding:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+
+        <TextView
+            android:id="@+id/tvPlayTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@{TimeFormatUtil.formatPlayerCounter(vm.current)}"
+            android:textColor="@color/colorAccentThemeLight"
+
+            binding:layout_constraintBottom_toBottomOf="@+id/progressBar"
+            binding:layout_constraintEnd_toStartOf="@+id/progressBar"
+            binding:layout_constraintHorizontal_chainStyle="packed"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@{TimeFormatUtil.formatPlayerCounter(vm.duration)}"
+            android:textColor="@color/colorAccentThemeLight"
+            binding:layout_constraintBottom_toBottomOf="@+id/progressBar"
+            binding:layout_constraintEnd_toEndOf="parent"
+
+            binding:layout_constraintHorizontal_bias="0.5"
+            binding:layout_constraintStart_toEndOf="@+id/progressBar"
+            binding:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+        <ImageView
+            android:id="@+id/btnFF"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            binding:srcCompat="@drawable/ff"
+            android:clickable="@{vm.isMediaPlayerPrepared}"
+            binding:layout_constraintBottom_toBottomOf="@+id/btnPlay"
+            binding:layout_constraintEnd_toEndOf="parent"
+
+            binding:layout_constraintHorizontal_bias="0.5"
+            binding:layout_constraintStart_toEndOf="@+id/btnPlay"
+            binding:layout_constraintTop_toTopOf="@+id/btnPlay" />
+
+        <ImageView
+            android:id="@+id/btnFP"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            binding:srcCompat="@drawable/fp"
+            android:clickable="@{vm.isMediaPlayerPrepared}"
+            binding:layout_constraintBottom_toBottomOf="@+id/btnPlay"
+            binding:layout_constraintEnd_toStartOf="@+id/btnPlay"
+            binding:layout_constraintHorizontal_bias="0.5"
+            binding:layout_constraintHorizontal_chainStyle="packed"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="@+id/btnPlay" />
+
+        <ImageView
+            android:id="@+id/btnPlay"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="48dp"
+            android:clickable="@{vm.isMediaPlayerPrepared}"
+            binding:layout_constraintEnd_toStartOf="@+id/btnFP"
+            binding:layout_constraintHorizontal_bias="0.5"
+            binding:layout_constraintStart_toEndOf="@+id/btnFF"
+            binding:layout_constraintTop_toBottomOf="@+id/progressBar"
+            binding:playState="@{vm.playState}"
+            binding:onClickCommand="@{vm.play}"
+            />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/dividerColorThemeLight"
+            binding:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{vm.hasMedia?0:8}"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toBottomOf="@+id/btnPlay" />
+
+            <org.sufficientlysecure.htmltextview.HtmlTextView
+                android:id="@+id/htmlFee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="8dp"
+                binding:html='@{vm.content}'
+                android:textColor="@color/textColorDarkThemeLight"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/view3"
+                 />
+
+
+        <!--<include-->
+            <!--android:id="@+id/bottombar"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--layout="@layout/detail_bottom_bar"-->
+            <!--binding:vm="@{vm.bottomVM}"-->
+            <!--android:layout_marginBottom="0dp"-->
+            <!--binding:layout_constraintLeft_toLeftOf="parent"-->
+            <!--binding:layout_constraintRight_toRightOf="parent"-->
+            <!--binding:layout_constraintBottom_toBottomOf="parent"-->
+            <!--/>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

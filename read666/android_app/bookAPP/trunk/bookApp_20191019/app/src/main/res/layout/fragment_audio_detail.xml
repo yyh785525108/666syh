@@ -1,0 +1,210 @@
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tchy.syh.listen.detail.AudioDetailViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowLeftButton="true"
+            binding:isShowSearchView="false"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+            binding:toolbarTitle="音频详情" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+            android:id="@+id/activity_main"
+            android:layout_below="@id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".listen.detail.AudioDetailFragment">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp">
+
+
+                <RelativeLayout
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cover"
+                        android:layout_width="126dp"
+                        android:layout_height="126dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            binding:url="@{viewModel.detailEntity.pic}" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16sp"
+                        android:layout_marginTop="22sp"
+                        android:layout_toRightOf="@id/cover"
+                        android:lines="3"
+                        android:maxWidth="180dp"
+                        android:text="@{viewModel.detailEntity.title}"
+                        android:textColor="#ff232122"
+                        android:textSize="16.5sp" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@id/cover"
+                        android:text="3.7分"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_toRightOf="@id/cover"
+                        android:text="@{viewModel.updateInfo}"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/price_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/update"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_toRightOf="@id/cover"
+                        android:text="@{viewModel.priceInfo}"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/update"
+                        android:layout_marginLeft="6dp"
+                        android:textColor="@color/colorAccentThemeLight"
+                        android:layout_marginTop="4dp"
+                        android:layout_toRightOf="@id/price_info"
+                        android:text="@{viewModel.vipPriceInfo}"
+                        android:textSize="12sp" />
+
+
+                    <com.tchy.syh.listen.view.ImageTextButton
+                        android:id="@+id/itb_collect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cover"
+                        android:layout_marginBottom="22dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="16dp"
+                        app:itb_bg="#00bf4e08"
+                        app:itb_bg_pressed="#00bf4e08"
+                        app:itb_icon="@mipmap/star_collect"
+                        app:itb_icon_position="left"
+                        app:itb_text_color="@color/colorAccentThemeLight"
+                        app:itb_icon_size="20dp"
+                        app:onClickCommand="@{viewModel.onClickCollect}"
+                        app:itb_icon_text_marggin="8dp"
+                        app:itb_radius="8dp"
+                        app:itb_text="@{viewModel.playNum}"
+                        app:itb_text_size="15sp" />
+
+                    <com.tchy.syh.listen.view.ImageTextButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cover"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="22dp"
+                        android:layout_marginTop="16dp"
+                        app:itb_bg="#00bf4e08"
+                        app:itb_bg_pressed="#00bf4e08"
+                        app:itb_icon="@mipmap/comment_2"
+                        app:onClickCommand="@{viewModel.onClickComment}"
+                        app:itb_icon_position="left"
+                        app:itb_icon_size="20dp"
+                        app:itb_icon_text_marggin="8dp"
+                        app:itb_radius="8dp"
+                        app:itb_text="@{viewModel.commentNum}"
+                        app:itb_text_size="15sp" />
+
+                    <com.tchy.syh.listen.view.ImageTextButton
+                        android:id="@+id/itb_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/cover"
+                        android:layout_marginBottom="22dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="16dp"
+                        app:onClickCommand="@{viewModel.shareClick}"
+                        app:itb_bg="#00bf4e08"
+                        app:itb_bg_pressed="#00bf4e08"
+                        app:itb_icon="@mipmap/share_dark_gray"
+                        app:itb_icon_position="left"
+                        app:itb_icon_size="18dp"
+                        app:itb_icon_text_marggin="8dp"
+                        app:itb_radius="8dp"
+                        app:itb_text="分享"
+                        app:itb_text_size="15sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/itb_share"
+                        android:background="#F8F8F8" />
+                </RelativeLayout>
+                <!--选项卡-->
+                <com.tchy.syh.listen.view.xtablayout.XTabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    app:x_tabIndicatorAnimation="false"
+                    app:x_tabIndicatorColor="#EB4449"
+                    app:x_tabIndicatorHeight="3dp"
+                    app:x_tabIndicatorWidth="32dp"
+                    app:x_tabMode="fixed"
+                    app:x_tabSelectedTextColor="#EB4447"
+                    app:x_tabTextColor="#000000" />
+
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+</layout>

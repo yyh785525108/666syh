@@ -1,0 +1,120 @@
+<resources>
+    <style name="AppTheme.Launcher">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:background">@mipmap/splash</item>
+        <item name="android:windowFullscreen">true</item>
+
+    <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
+    <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">?attr/colorControlNormal</item>
+        <item name="colorPrimaryDark">@color/book_loading_background</item>
+        <item name="colorAccent">@color/colorPrimaryDarkThemeLight</item>
+        <item name="android:textColor">#AAAAAA</item>
+        <item name="android:textSize">@dimen/primaryTextSize</item>
+        <item name="android:textColorHint">@color/textColorHintThemeLight</item>
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimaryThemeLight</item>
+        <item name="android:windowContentTransitions">true</item>
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="colorPrimary">@color/colorPrimaryThemeLight</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnim</item>
+
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkThemeLight</item>
+        <item name="colorAccent">@color/colorAccentThemeLight</item>
+
+        <item name="android:colorControlHighlight">@color/colorAccentRipple</item>
+        <item name="android:colorControlNormal">@color/colorAccentRippleInverse</item>
+        <item name="android:windowContentTransitions">true</item>
+
+        <item name="android:textColor">#AAAAAA</item>
+        <item name="android:textSize">@dimen/primaryTextSize</item>
+        <item name="android:textColorHint">@color/textColorHintThemeLight</item>
+
+        <item name="colorControlNormal">@color/textColorHint</item>
+        <item name="android:colorBackground">@color/colorPrimaryThemeLight</item>
+        <item name="android:textColorPrimaryInverse">@color/colorPrimaryThemeLight</item>
+    </style>
+    <style name="AppThemeLightInverse" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="colorPrimary">@color/colorPrimaryThemeLight</item>
+        <item name="colorPrimaryDark">@color/colorAccentThemeLight</item>
+        <item name="colorAccent">@color/colorAccentThemeLight</item>
+        <item name="android:colorControlHighlight">@color/colorAccentRipple</item>
+        <item name="android:colorControlNormal">@color/colorAccentRippleInverse</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnim</item>
+
+        <item name="android:textColor">#AAAAAA</item>
+        <item name="android:textSize">@dimen/primaryTextSize</item>
+        <item name="android:textColorHint">@color/textColorHintThemeLight</item>
+
+        <item name="colorControlNormal">@color/textColorHint</item>
+        <item name="android:colorBackground">@color/colorPrimaryThemeLight</item>
+        <item name="android:textColorPrimaryInverse">@color/colorPrimaryThemeLight</item>
+    </style>
+    <style name="filledBtn" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/filled_ripple_round_corner_bg</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:minHeight">@dimen/primaryBtnMinHeight</item>
+        <item name="android:textSize">@dimen/primaryBtnTextSize</item>
+
+    </style>
+    <style name="toolbars" >
+        <item name="colorPrimaryDark">@color/colorAccentThemeLight</item>
+    </style>
+    <style name="borderedBtn" parent="Widget.AppCompat.Button.Borderless">
+
+        <item name="android:background">@drawable/border_color_selector</item>
+        <item name="android:textColor">@drawable/border_color_selector</item>
+        <item name="android:minHeight">@dimen/primaryBtnMinHeight</item>
+        <item name="android:textSize">@dimen/primaryBtnTextSize</item>
+
+    </style>
+
+    <style name="CheckboxCustom" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <!-- Customize your theme here. -->
+        <item name="android:colorControlNormal">@color/colorAccent</item>
+
+    </style>
+    <style name="bottomSheet_animation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/bottom_enter</item>
+        <item name="android:windowExitAnimation">@anim/bottom_leave</item>
+    </style>
+
+    <!--<style name="AppThemeTrans" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--</style>-->
+    ---
+    <style name="ActivityAnim" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/right_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/left_leave</item>
+        <item name="android:activityCloseEnterAnimation">@anim/left_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/right_leave</item>
+    </style>
+
+    <style name="ListenPopupWindow">
+
+        <item name="android:windowEnterAnimation">@anim/pop_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_out</item>
+    </style>
+
+
+</resources>

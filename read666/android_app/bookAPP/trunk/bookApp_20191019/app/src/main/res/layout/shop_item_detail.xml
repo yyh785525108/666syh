@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.shopping.detail.DetailVm"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.tchy.syh.custom.toolbar.CustomToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        binding:isShowRightButton="false"
+        binding:isShowSearchView="false"
+        binding:toolbarTitle="商品详情"
+        binding:isShowLeftButton="true"
+        binding:leftButtonIcon="@mipmap/back_black_small"
+
+        ></com.tchy.syh.custom.toolbar.CustomToolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
+        android:layout_below="@+id/toolbar"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   url="@{vm.bean.thumb}"
+                    android:minHeight="374dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1/4"
+                    android:paddingHorizontal="15dp"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:textColor="@color/textColorInverseThemeLight"
+                    android:background="@drawable/filled_round_big_corner_grey_bg"
+                    android:backgroundTint="#777878"
+                    android:paddingVertical="3dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/banner"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    />
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+
+                android:paddingVertical="16dp">
+
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{vm.bean.title}"
+                    android:textColor="#3c3f46"
+                    android:textSize="15sp"
+                    binding:layout_constraintStart_toStartOf="parent"
+                    binding:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="16dp"
+                    android:text="@{@string/point(vm.bean.integral)}"
+                    android:textColor="#ff803a"
+                    android:textSize="14sp"
+                    binding:layout_constraintStart_toStartOf="@+id/textView43"
+                    binding:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/moneyStr(String.valueOf(vm.bean.price))}"
+                    android:textColor="#ff803a"
+                    android:textSize="16sp"
+                    binding:layout_constraintBaseline_toBaselineOf="@+id/textView44"
+
+                    binding:layout_constraintStart_toEndOf="@+id/textView44" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发送地：深圳"
+                    android:textColor="#999"
+                    android:textSize="11sp"
+                    binding:layout_constraintBaseline_toBaselineOf="@+id/textView44"
+                    binding:layout_constraintEnd_toEndOf="@+id/textView47"
+                    />
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{@string/buynum(vm.bean.sale_num)}"
+                    android:textColor="@color/textColorThemeLight"
+                    tintColor="@{@color/textColorThemeLight}"
+                    drawSize="@{11}"
+                    android:drawablePadding="5dp"
+                    android:textSize="11sp"
+                    binding:layout_constraintEnd_toEndOf="parent"
+                    binding:layout_constraintTop_toTopOf="@+id/textView43" />
+
+                <TextView
+                    android:id="@+id/textView48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="12sp"
+                    android:textColor="#999"
+                    android:text="@{vm.bean.desc}"
+                    binding:layout_constraintStart_toStartOf="@+id/textView43"
+                    binding:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#f5f5f5"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="16dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="13sp"
+                    android:text="服务:"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="13sp"
+                    android:text="官方正品"
+                    android:layout_marginLeft="23dp"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@mipmap/shop_yes"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="13sp"
+                    android:text="快递包邮"
+                    android:layout_marginLeft="23dp"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@mipmap/shop_yes"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="13sp"
+                    android:text="质量保证"
+                    android:layout_marginLeft="23dp"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@mipmap/shop_yes"
+                    />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#f5f5f5"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line_bottom_grey_bg"
+                android:paddingVertical="16dp"
+                android:text="商品详情"
+                android:textSize="16sp"
+                android:textColor="#3c3f46"
+                android:paddingLeft="@dimen/horizontal_edge_space"
+                />
+            <org.sufficientlysecure.htmltextview.HtmlTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                binding:html='@{vm.bean.content}'
+                android:textColor="@color/textColorDarkThemeLight"
+                />
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorAccentThemeLight"
+        android:textColor="@color/textColorInverseThemeLight"
+        android:text="马上兑换"
+        binding:onClickCommand="@{vm.submitClick}"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        />
+</RelativeLayout>
+
+
+
+
+</layout>

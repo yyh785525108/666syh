@@ -1,0 +1,67 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_130"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/shape_corner_white">
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="我是名字"
+            android:maxLength="5"
+            android:textSize="14dp"
+            android:textColor="#ff232122"
+            android:layout_marginTop="26dp"
+            />
+        <TextView
+            android:id="@+id/timeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center_horizontal"
+            android:text="12345"
+            android:textColor="#ff999999"
+            android:textSize="11dp" />
+
+        <Button
+            android:id="@+id/guanzhuBtn"
+            android:focusable="false"
+            android:layout_marginTop="16dp"
+            android:layout_width="64dp"
+            android:layout_height="32dp"
+            android:text="关注"
+            android:textColor="@color/index_guanzhu_color"
+            android:textSize="12dp"
+            android:background="@drawable/index_guanzhu_btns"
+            />
+
+    </LinearLayout>
+    <com.yyh.read666.view.CircleImageView
+        android:id="@+id/headImg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher" />
+    <com.yyh.read666.view.CircleImageView
+        android:id="@+id/vipImg"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:scaleType="centerCrop"
+        android:layout_alignRight="@+id/headImg"
+        android:layout_alignBottom="@+id/headImg"
+        android:src="@drawable/v" />
+</RelativeLayout>

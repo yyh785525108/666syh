@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.daily_advance.daily_list.DailyListItemViewModel" />
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.daily_advance.daily_list.DailyListItemViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+        <import type="com.tchy.syh.custom.CustomLineManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/book_padding"
+        android:paddingRight="@dimen/book_padding"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:visibility="@{vm.dailyList.size==0?0:8}"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/network_err" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="没有找到相关数据" />
+        </LinearLayout>
+        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+            android:id="@+id/twinklingRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:onLoadMoreCommand="@{vm.onLoadMoreCommand}"
+            binding:onRefreshCommand="@{vm.onRefreshCommand}"
+            binding:loadMoreFinish="@{vm.isLoadMoreFinish}"
+            binding:refreshFinish="@{vm.isRefreshFinish}"
+            binding:tr_head_height="80dp"
+            binding:tr_wave_height="80dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:itemBinding="@{vm.dailyItemBinding}"
+                binding:items="@{vm.dailyList}"
+                binding:layoutManager="@{LayoutManagers.linear()}"
+                binding:lineManager="@{CustomLineManagers.horizontal()}" />
+
+        </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+    </RelativeLayout>
+</layout>

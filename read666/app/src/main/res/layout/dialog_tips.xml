@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="315dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_corner"
+    android:orientation="vertical">
+    
+    <!--取消确认类型的dialog-->
+    <TextView
+        android:id="@+id/dialog_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="请选择打赏金额："
+        android:textColor="#ff232122"
+        android:textSize="15dp"
+        />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_1"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="2dp"
+            android:text="2元"
+            android:textSize="14dp"
+            android:textColor="@color/dashang_color"
+            android:background="@drawable/shape_corner_dashang_btns"
+            />
+        <Button
+            android:id="@+id/btn_2"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="5元"
+            android:textSize="14dp"
+            android:textColor="@color/dashang_color"
+            android:background="@drawable/shape_corner_dashang_btns"
+            />
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="8dp"
+            android:textSize="14dp"
+            android:text="20元"
+            android:background="@drawable/shape_corner_dashang_btns"
+            android:textColor="@color/dashang_color"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_4"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="2dp"
+            android:text="50元"
+            android:textSize="14dp"
+            android:textColor="@color/dashang_color"
+            android:background="@drawable/shape_corner_dashang_btns"
+            />
+        <Button
+            android:id="@+id/btn_5"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="14dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="100元"
+            android:textColor="@color/dashang_color"
+            android:background="@drawable/shape_corner_dashang_btns"
+            />
+        <Button
+            android:id="@+id/btn_6"
+            android:enabled="false"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="8dp"
+            android:text="￥0.00元"
+            android:textSize="14dp"
+            android:background="@drawable/shape_corner_dashang_btns"
+            android:textColor="@color/dashang_color"
+
+            />
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/zhifuBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:textColor="#FFFFFF"
+
+        android:text="确认支付"
+        android:background="@drawable/shape_corner_red_4"/>
+
+</LinearLayout>

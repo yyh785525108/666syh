@@ -1,0 +1,86 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+        <RelativeLayout
+            android:background="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            >
+                <LinearLayout
+                    android:id="@+id/qbbfLay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:background="@drawable/shape_corner_qbbf"
+                    >
+                        <ImageView
+                            android:id="@+id/qbbfImg"
+                            android:layout_width="@dimen/dp_16"
+                            android:layout_height="@dimen/dp_16"
+                            android:src="@drawable/audio_qbbf_btns"/>
+                        <TextView
+                            android:id="@+id/qbbfTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="0dp"
+                            android:text="全部播放"
+                            android:textColor="#ff232122"
+                            android:textSize="15dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/duoshaojiLay"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+
+                    >
+                        <ImageView
+                            android:id="@+id/duoshaojiImg1"
+                            android:layout_width="@dimen/dp_22"
+                            android:layout_height="@dimen/dp_22"
+                            android:src="@drawable/audio_daoxu_btns"/>
+                        <TextView
+                            android:id="@+id/duoshaojiTv"
+                            android:layout_marginRight="6dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="0dp"
+                            android:text="共100集"
+                            android:textColor="#ff232122"
+                            android:textSize="15dp" />
+                        <ImageView
+                            android:id="@+id/duoshaojiImg2"
+                            android:layout_width="@dimen/dp_11"
+                            android:layout_height="@dimen/dp_11"
+                            android:src="@drawable/audio_down_p"/>
+                </LinearLayout>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ViewColor" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+</LinearLayout>

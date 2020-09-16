@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.read.home.ReadPageListViewModel" />
+
+        <variable
+            name="vm"
+            type="ReadPageListViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f5f5"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowRightButton="true"
+            binding:isShowSearchView="true"
+            binding:rightButtonIcon="@mipmap/msg_default"
+            binding:searchType="2">
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:visibility="@{vm.hasNetwork==8?0:8}" app:onClickCommand="@{vm.refreshNetworkClick}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/network_err" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="暂无网络，请点击重试" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:visibility="@{vm.hasNetwork}"
+                android:orientation="vertical">
+
+                <!--<com.astuetz.PagerSlidingTabStrip-->
+                    <!--android:id="@+id/tabs"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--binding:pstsIndicatorColor="@color/colorAccentThemeLight"-->
+                    <!--binding:pstsIndicatorHeight="3dp"-->
+                    <!--binding:pstsTabTextColor="@color/tab_color"-->
+                    <!--binding:pstsTabTextSize="16sp">-->
+
+
+                <!--</com.astuetz.PagerSlidingTabStrip>-->
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    android:id="@+id/magic_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tabs"
+                    binding:itemBinding="@{vm.readListPageBinding}"
+                    binding:items="@{vm.pageList}"
+                    binding:pageTitles="@{vm.pageTitles}">
+
+                </androidx.viewpager.widget.ViewPager>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

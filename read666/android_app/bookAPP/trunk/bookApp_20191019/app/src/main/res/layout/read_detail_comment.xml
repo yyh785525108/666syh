@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.R" />
+        <variable
+            name="vm"
+            type="com.tchy.syh.read.detail.ReadDetailPageCommentVm" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/horizontal_edge_space"
+        android:paddingRight="@dimen/horizontal_edge_space"
+        android:orientation="vertical">
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorAccent"
+            binding:layout_collapseMode="pin"
+            binding:toolbarTitle="@{vm.title}"></com.tchy.syh.custom.toolbar.CustomToolbar>
+        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+            android:id="@+id/twinklingRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:onLoadMoreCommand="@{vm.onLoadMoreCommand}"
+            binding:onRefreshCommand="@{vm.onRefreshCommand}"
+            binding:loadMoreFinish="@{vm.isLoadMoreFinish}"
+            binding:refreshFinish="@{vm.isRefreshFinish}"
+            binding:tr_head_height="80dp"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@id/toolbar"
+            binding:tr_wave_height="80dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:itemBinding="@{vm.itemBinding}"
+            binding:items="@{vm.commentList}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            ></androidx.recyclerview.widget.RecyclerView>
+        </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp"
+
+            android:background="@drawable/line_bottom_top_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                onClickCommand="@{vm.backClick}"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/back_black_small"
+                />
+            <TextView
+                android:id="@+id/et_comment"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:layout_toLeftOf="@+id/dashang"
+                android:layout_toRightOf="@id/back"
+                android:drawableLeft="@mipmap/input"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:textSize="14sp"
+                onClickCommand="@{vm.commentWriteClick}"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/filled_round_big_corner_grey_bg"
+                android:hint="请输入评论内容"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

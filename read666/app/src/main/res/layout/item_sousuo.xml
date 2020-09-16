@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title"
+                android:maxLength="10"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修行之路--张一发"
+                android:textColor="#ff232122"
+                android:textSize="15dp"/>
+            <TextView
+                android:id="@+id/description"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="明心 见性 开悟 走修行之路，获智慧人生"
+                android:layout_below="@+id/title"
+                android:layout_alignLeft="@+id/title"
+                android:textColor="#ff999999"
+                android:textSize="11dp"/>
+
+        </RelativeLayout>
+
+
+
+</LinearLayout>

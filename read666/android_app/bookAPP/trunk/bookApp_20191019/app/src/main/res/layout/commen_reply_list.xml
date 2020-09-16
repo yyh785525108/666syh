@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="com.tchy.syh.comment.CommentReplyVM" />
+        <import type="com.tchy.syh.utils.TimeFormatUtil" />
+        <import type="com.tchy.syh.utils.NumberFormatUtil" />
+        <variable
+            name="vm"
+            type="CommentReplyVM" />
+        <import type="com.tchy.syh.custom.CustomLineManagers"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftButtonIcon="@mipmap/back_black_small"
+            app:isShowLeftButton="false"
+            app:toolbarTitle="评论详情"
+
+            ></com.tchy.syh.custom.toolbar.CustomToolbar>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/header"
+    android:background="@drawable/line_bottom_grey_bg"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbar"
+    android:padding="@dimen/horizontal_edge_space"
+    >
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:cImgSrc="@{vm.entity.avatar}" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@{vm.entity.nickname}"
+        android:textColor="@color/textColorDarkThemeLight"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{vm.entity.content}"
+        android:textColor="@color/textColorThemeLight"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@mipmap/up_selected"
+        android:drawablePadding="10dp"
+        app:tintColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:text='@{NumberFormatUtil.format(vm.upNum,10000,"w")}'
+        android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:textSize="11sp"
+        android:gravity="center_vertical"
+        app:onClickCommand="@{vm.upClick}"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:text="@{@string/no(vm.index)}"
+        android:textSize="13sp"
+
+        />
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{TimeFormatUtil.formatLatest(vm.entity.add_time)}"
+        android:textSize="13sp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/no"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@mipmap/comment_count"
+        android:drawablePadding="5dp"
+        android:text="@{String.valueOf(vm.replyNum)}"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--<View-->
+            <!--android:layout_below="@id/header"-->
+            <!--android:id="@+id/divider"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/dividerColorDarkThemeLight"-->
+
+            <!--&gt;</View>-->
+        <TextView
+            android:id="@+id/commentnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_edge_space"
+            android:text="@{@string/reply_count(vm.num)}"
+            android:textStyle="bold"
+            android:layout_below="@+id/header"
+            android:layout_marginTop="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/textColorThemeLight"
+            />
+
+            <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+                android:layout_below="@+id/commentnum"
+                android:id="@+id/twinklingRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_above="@+id/bottom"
+                app:onLoadMoreCommand="@{vm.onLoadMoreCommand}"
+                app:onRefreshCommand="@{vm.onRefreshCommand}"
+                app:loadMoreFinish="@{vm.isLoadMoreFinish}"
+                app:refreshFinish="@{vm.isRefreshFinish}"
+                app:tr_head_height="80dp"
+                app:tr_wave_height="80dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:itemBinding="@{vm.itemBinding}"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:items="@{vm.observableList}"
+                    app:layoutManager="@{LayoutManagers.linear()}"
+                    app:lineManager="@{CustomLineManagers.horizontal()}"
+                    />
+
+            </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+            android:background="@drawable/line_bottom_top_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+
+            <TextView
+                android:id="@+id/et_comment"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="16dp"
+                android:drawableLeft="@mipmap/input"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/filled_round_big_corner_grey_bg"
+                android:hint="请输入评论内容"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

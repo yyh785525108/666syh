@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_top" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="0dp"
+        android:background="@color/ViewColor" />
+
+    <EditText
+        android:id="@+id/contentEt"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_height="200dp"
+        android:padding="4dp"
+        android:gravity="left|top"
+        android:textSize="15dp"
+        android:hint="请描述您的问题，我们会尽快和您联系"
+        android:background="@drawable/shape_corner_white2"/>
+    <EditText
+        android:id="@+id/phoneEt"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:textSize="15dp"
+        android:gravity="left|center_vertical"
+        android:hint="请备注您的联系方式（手机/微信/QQ）"
+        android:background="@drawable/shape_corner_white2"/>
+
+        <Button
+            android:id="@+id/commitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            android:background="@drawable/shape_corner_commit"
+            android:text="提交反馈"
+            />
+
+</LinearLayout>

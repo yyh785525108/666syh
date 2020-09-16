@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.book.book_home.FreeBookItemVM"/>
+
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/fire"
+            android:drawablePadding="3dp"
+            android:text="@{vm.bean.booknum}"
+            android:layout_gravity="center_horizontal"
+            android:textSize="10sp"
+            android:textColor="#ea2626"
+            />
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:minWidth="90dp"
+            android:layout_gravity="center_horizontal"
+            app:url="@{vm.bean.thumb}"
+            app:onClickCommand="@{vm.navClickCmd}"
+            />
+    </LinearLayout>
+</layout>

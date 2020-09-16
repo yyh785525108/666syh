@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/colorAccent" android:drawable="@drawable/bordered_ripple_round_corner_bg" android:state_enabled="true">
+
+    </item>
+    <item android:color="@color/textColorHintThemeLight" android:drawable="@drawable/bordered_round_corner_bg_disabled" android:state_enabled="false">
+
+    </item>
+
+</selector>

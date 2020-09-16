@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.tchy.syh.R" />
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.tchy.syh.custom.DisabledSlidingHorViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </com.tchy.syh.custom.DisabledSlidingHorViewPager>
+
+        <RadioGroup
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/line_top_grey_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="1dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onCheckedChangedCommand="@{vm.vpPageOnChange}">
+
+            <RadioButton
+                android:id="@+id/btn_book"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/bottom_bar_book_selector"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingTop="5dp"
+                android:text="@string/book"
+                android:textColor="@drawable/home_tab_font_color_selector"
+                android:textSize="10sp" />
+
+            <RadioButton
+                android:id="@+id/btn_listen"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="30dp"
+                android:layout_weight="4"
+                android:button="@null"
+                android:drawableTop="@drawable/bottom_bar_listen_selector"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingTop="5dp"
+                android:text="@string/listen"
+                android:textColor="@drawable/home_tab_font_color_selector"
+                android:textSize="10sp" />
+
+            <RadioButton
+                android:id="@+id/btn_read"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="4"
+                android:button="@null"
+                android:drawableTop="@drawable/bottom_bar_read_selector"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingTop="5dp"
+                android:text="@string/read"
+                android:textColor="@drawable/home_tab_font_color_selector"
+                android:textSize="10sp" />
+
+            <RadioButton
+                android:id="@+id/btn_my"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:button="@null"
+                android:drawableTop="@drawable/bottom_bar_my_selector"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingTop="5dp"
+                android:text="@string/my"
+                android:textColor="@drawable/home_tab_font_color_selector"
+                android:textSize="10sp" />
+        </RadioGroup>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btn_play"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            android:src="@mipmap/play_default_bg"
+            app:civ_border_color="#eeeeee"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:onClickCommand="@{vm.onPlayClick}" />
+
+        <ImageView
+            android:id="@+id/ic_play"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="20dp"
+            android:src="@mipmap/play"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_play"
+            app:layout_constraintLeft_toLeftOf="@id/btn_play"
+            app:layout_constraintRight_toRightOf="@id/btn_play"
+            app:layout_constraintTop_toTopOf="@id/btn_play" />
+
+        <!--<include layout="@layout/detail_bottom_bar"-->
+        <!--android:layout_marginTop="200dp"/>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

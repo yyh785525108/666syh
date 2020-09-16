@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+    <data>
+
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.spreadranking.ListItemVM" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/horizontal_edge_space"
+        android:paddingVertical="10dp"
+        android:background="@{vm.curr.pm%2==0?@color/greyBg:@color/white}"
+        >
+        <TextView
+            android:id="@+id/index"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text='@{vm.curr.pm==0?@string/no_ranking:@string/num(vm.curr.pm)}'
+            android:gravity="center"
+            android:textColor="#333"
+            android:textSize="13sp"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cImgSrc="@{vm.curr.avatar}"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/index"
+
+
+            />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#333"
+            android:paddingRight="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{vm.curr.nickname}"
+            android:layout_toRightOf="@+id/icon"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@+id/pm"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/heart_plus_white"
+            android:drawablePadding="5dp"
+            android:textSize="11sp"
+            android:drawableTint="#E60000"
+            android:text="@{@string/num(vm.curr.fans)}"
+            android:textColor="#E60000"
+            />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.shopping.home.ListItemVM"/>
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            binding:onClickCommand="@{vm.itemClick}"
+            android:padding="16dp">
+
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="155dp"
+                android:layout_height="155dp"
+                url="@{vm.bean.thumb}"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="parent"
+                 />
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{vm.bean.title}"
+                android:textColor="#3c3f46"
+                android:textSize="14sp"
+                binding:layout_constraintEnd_toEndOf="@+id/imageView14"
+                binding:layout_constraintHorizontal_bias="0"
+                binding:layout_constraintStart_toStartOf="@+id/imageView14"
+                binding:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:text="@{@string/pointStr(vm.bean.integral)}"
+                android:textColor="#ff803a"
+                android:textSize="9sp"
+                binding:layout_constraintStart_toStartOf="@+id/textView43"
+                binding:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{@string/moneyStr(vm.bean.price)}"
+                android:textColor="#ff803a"
+                android:textSize="11sp"
+                binding:layout_constraintBaseline_toBaselineOf="@+id/textView44"
+
+                binding:layout_constraintStart_toEndOf="@+id/textView44"
+                 />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

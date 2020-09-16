@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="com.tchy.syh.utils.TimeFormatUtil" />
+        <import type="me.goldze.mvvmhabit.utils.StringUtils" />
+
+        <import type="com.tchy.syh.utils.NumberFormatUtil" />
+        <variable
+            name="vm"
+            type="com.tchy.syh.daily_advance.daily_list.DailyCommentListItemVm" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/line_bottom_grey_bg"
+    android:layout_height="wrap_content"
+    android:paddingTop="3dp"
+    android:paddingVertical="10dp"
+    app:onClickCommand="@{vm.itemClick}"
+
+    >
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:cImgSrc="@{vm.entity.avatar}" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text='@{vm.nickname}'
+        android:textColor="@color/textColorHintThemeLight"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{vm.entity.content}"
+        android:textColor="#333"
+        android:textSize="16sp"
+        app:danger='@{StringUtils.equals(vm.entity.type,"shang")}'
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@mipmap/up_selected"
+        app:tintColor='@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}'
+        drawSize="@{16}"
+        android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:drawablePadding="10dp"
+        android:text='@{NumberFormatUtil.format(vm.num,10000,"万")}'
+        app:onClickCommand="@{vm.upClick}"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/subComment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#eee"
+        android:orientation="vertical"
+        android:visibility="@{vm.entity.reply_num>0&amp;&amp;vm.canClickItem?0:8}"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text='@{vm.entity.comment_list.size>0?vm.entity.comment_list.get(0).nickname+"："+vm.entity.comment_list.get(0).content:""}' />
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="3dp"
+            android:text='@{vm.entity.comment_list.size>1?vm.entity.comment_list.get(1).nickname+"："+vm.entity.comment_list.get(1).content:""}' />
+        <TextView
+            android:id="@+id/seeAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:visibility="@{vm.entity.comment_list.size>1?0:8}"
+            android:textSize="14sp"
+            app:onClickCommand="@{vm.itemClick}"
+            android:text="查看全部评论 >"
+            />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

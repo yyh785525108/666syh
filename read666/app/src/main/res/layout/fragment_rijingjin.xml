@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:background="#fff5f5f5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.yyh.read666.view.MyListView
+            android:id="@+id/listView"
+            android:divider="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.yyh.read666.view.MyListView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

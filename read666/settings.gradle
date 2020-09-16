@@ -1,0 +1,2 @@
+include ':java_test_lib'
+include ':app'

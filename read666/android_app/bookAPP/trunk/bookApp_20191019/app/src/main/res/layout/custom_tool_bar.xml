@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.custom.toolbar.CustomToolbarVM" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+       android:paddingHorizontal="@dimen/toolbar_margin"
+        >
+
+        <ImageView
+            android:id="@+id/toolbar_leftButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:padding="7.5dp"
+            android:layout_marginLeft="5dp"
+            app:onClickCommand="@{vm.onLeftClick}"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/toolbar_searchview"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/toolbar_rightButton"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/horizontal_edge_space"
+            android:background="@drawable/searchbox_round_bg"
+            android:drawableLeft="@mipmap/search"
+            android:drawablePadding="@dimen/customEditMargin"
+            android:gravity="left|center_vertical"
+            android:hint="@string/search_hint"
+            android:paddingLeft="@dimen/customEditMargin"
+            android:textSize="14sp"
+            app:onClickCommand="@{vm.onSearchClick}"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/toolbar_rightButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            app:onClickCommand="@{vm.onRightClick}"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+</layout>

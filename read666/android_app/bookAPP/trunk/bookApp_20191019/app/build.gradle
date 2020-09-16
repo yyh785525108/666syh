@@ -1,0 +1,179 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.bugtags.library.plugin'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+//    compileSdkVersion 27
+//    buildToolsVersion '27.0.3'
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    signingConfigs {
+        debug {
+            storeFile file("syh")
+            storePassword "syh666888"
+            keyAlias "syh"
+            keyPassword "syh666888"
+        }
+
+        release {
+            storeFile file("syh")
+            storePassword "syh666888"
+            keyAlias "syh"
+            keyPassword "syh666888"
+        }
+    }
+    defaultConfig {
+        renderscriptTargetApi 27
+        renderscriptSupportModeEnabled true
+        buildConfigField "String", "umeng_appkey", '"splash_activity"'
+        buildConfigField "String", "umeng_appsecret", '"splash_activity"'
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.splash_activity.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [qqappid: "1"]
+        ndk {
+            // 设置支持的 SO 库构架，一般而言，取你所有的库支持的构架的`交集`。
+            abiFilters 'armeabi' ,'armeabi-v7a', 'x86', 'mips'
+        }
+
+
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+bugtags {
+    //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考帮助中心->符号表->Android 符号表->配置自动上传符号表
+    appKey "31e18aea32627449c9c07f10aa61a360"  //这里是你的 appKey
+    appSecret "2194192c1b7b5b228fa0d97e8940d4af"    //这里是你的 appSecret，管理员在设置页可以查看
+    mappingUploadEnabled true
+}
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+
+    //下拉刷新,上拉加载
+    api rootProject.ext.dependencies.tkrefreshlayout
+
+    //    api project(':mvvmhabit')
+    implementation 'com.github.goldze:MVVMHabit:2.0.7'
+
+    //    api 'com.github.goldze:MVVMHabit:2.0.4'
+
+    //    implementation 'com.jakewharton:butterknife:8.8.1'
+
+    //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+    }
+
+    //    implementation ('com.alibaba.android:ultraviewpager:1.0.7.7@aar') {
+
+    //        transitive = true
+
+    //    }
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
+    implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
+    implementation 'com.qianwen:update-app:3.5.2'
+    implementation 'com.github.CHAOHUILI:AddressPicker:v1.1.0'
+
+    //    implementation 'com.bugtags.library:bugtags-lib:latest.integration'
+
+    //线上使用，如果不需要使用手动提交 issue，可以选择 metrics 包
+    implementation 'com.bugtags.metrics:bugtags-lib:latest.integration'
+    implementation('cn.qqtheme.framework:WheelPicker:1.5.6') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'io.alterac.blurkit:blurkit:1.0.0'
+    implementation 'com.gcssloop.widget:rclayout:1.8.1'
+    implementation 'com.wonderkiln:blurkit:1.0.0'
+    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.2.4'
+    implementation 'com.linchaolong.android:imagepicker:1.5'
+    implementation 'com.github.aakira:expandable-layout:1.6.0@aar'
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
+    implementation 'net.opacapp:multiline-collapsingtoolbar:27.1.1'
+    implementation ('com.google.android.material:material:1.0.0') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.nex3z:flow-layout:1.2.2'
+    implementation 'com.shuyu:GSYVideoPlayer:5.0.1'
+    implementation 'com.umeng.sdk:share-core:6.9.2'
+    implementation 'com.umeng.sdk:share-qq:6.9.1.1'
+    implementation 'com.umeng.sdk:share-wechat:6.9.2'
+    implementation 'com.umeng.sdk:share-sina:6.9.2'
+    implementation 'com.umeng.sdk:common:1.5.1'
+    implementation 'org.sufficientlysecure:html-textview:3.6'
+
+    //    implementation 'com.github.sendtion:XRichText:1.5'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    implementation 'com.github.OCNYang:PageTransformerHelp:v1.0.0'
+    implementation 'com.romandanylyk:pageindicatorview:1.0.1'
+    implementation 'com.just.agentweb:agentweb:4.0.2'
+
+    // (必选)
+    implementation 'com.just.agentweb:download:4.0.2'
+
+    // (可选)
+    implementation 'com.just.agentweb:filechooser:4.0.2'
+
+    // (可选)
+    implementation 'com.flyco.dialog:FlycoDialog_Lib:1.3.2@aar'
+    implementation 'com.victor:lib:1.0.4'
+
+    //    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'q.rorbin:badgeview:1.1.3'
+    implementation 'com.jpardogo.materialtabstrip:library:1.1.1'
+    implementation ('androidx.cardview:cardview:1.0.0')
+            {
+                exclude group: 'com.android.support'
+            }
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    //    Implementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    implementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    implementation rootProject.ext.dependencies.okhttplogging
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+
+    // optional - RxJava support for Room
+    implementation 'androidx.room:room-rxjava2:2.0.0'
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation 'androidx.room:room-guava:2.0.0'
+
+    // Test helpers
+    testImplementation 'androidx.room:room-testing:2.0.0'
+
+    //audio
+    implementation(name: 'musiclibrary-release', ext: 'aar')
+    implementation project(':ninegridview')
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+}

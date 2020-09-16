@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.shopping.address.ListVM"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f5f5"
+    >
+    <com.tchy.syh.custom.toolbar.CustomToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        binding:isShowRightButton="false"
+        binding:isShowSearchView="false"
+        binding:toolbarTitle="管理收货地址"
+        binding:isShowLeftButton="true"
+        binding:leftButtonIcon="@mipmap/back_black_small"
+
+        ></com.tchy.syh.custom.toolbar.CustomToolbar>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="68dp"
+        itemBinding="@{vm.itemBinding}"
+        items="@{vm.listItems}"
+        binding:layoutManager="@{LayoutManagers.linear()}"
+        >
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:background="#f5f5f5"
+
+        android:visibility="@{vm.listItems.size()>0?8:0}"
+        >
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+
+            android:src="@mipmap/address_empty"
+
+            />
+        <Button
+            style="@style/borderedBtn"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingVertical="10dp"
+            android:text="新建地址"
+            app:onClickCommand="@{vm.createClick}"
+            android:minHeight="0dp"
+            android:textSize="14sp"
+
+            />
+
+    </LinearLayout>
+
+    <Button
+        style="@style/filledBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filled_round_corner_gradient_bg"
+        android:layout_marginBottom="@dimen/horizontal_edge_space"
+        android:layout_marginHorizontal="36dp"
+        android:textColor="@color/textColorInverseThemeLight"
+        android:text="新建地址"
+        app:onClickCommand="@{vm.createClick}"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        />
+</RelativeLayout>
+
+
+
+
+</layout>

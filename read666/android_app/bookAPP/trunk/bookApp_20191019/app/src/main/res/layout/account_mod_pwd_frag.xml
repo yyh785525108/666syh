@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.userAccount.AccountCommonVm" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.tchy.syh.custom.toolbar.CustomToolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isShowRightButton="false"
+                app:toolbarTitle="设置密码"
+                app:isShowLeftButton="true"
+                app:leftButtonIcon="@mipmap/back_black_small"
+
+                ></com.tchy.syh.custom.toolbar.CustomToolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="24dp"
+            >
+
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:inputType="password"
+                app:text="@{vm.old_pwd}"
+                app:hint="请输入旧密码"
+                app:label="旧密码："
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                />
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inputType="password"
+                app:isSupportSub="false"
+                app:text="@{vm.password}"
+                app:label="新密码："
+                app:hint="请输入8-18位新密码"
+                app:maxLength="20"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_account"
+                />
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inputType="password"
+                app:isSupportSub="false"
+                app:maxLength="20"
+                app:text="@{vm.confirmPassword}"
+                app:label="确认密码："
+                app:hint="请输入8-18位确认密码"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_account"
+                />
+            <Button
+                android:id="@+id/button3"
+                style="@style/filledBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="@string/submit"
+                app:onClickCommand="@{vm.modifyPwd}"
+               />
+        </LinearLayout>
+        </LinearLayout>
+   </ScrollView>
+
+</layout>

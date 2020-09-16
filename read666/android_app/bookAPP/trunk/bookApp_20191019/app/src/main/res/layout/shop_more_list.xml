@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.shopping.list.PageListViewModel" />
+
+        <variable
+            name="vm"
+            type="PageListViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowRightButton="false"
+            binding:isShowSearchView="false"
+            binding:toolbarTitle="全部商品"
+            binding:isShowLeftButton="true"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+
+            >
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+        <TextView
+            android:id="@+id/toolbar_searchview"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            onClickCommand="@{vm.searchClick}"
+            android:layout_marginHorizontal="@dimen/horizontal_edge_space"
+            android:background="@drawable/searchbox_round_bg"
+            android:drawableLeft="@mipmap/search"
+            android:drawablePadding="@dimen/customEditMargin"
+            android:gravity="left|center_vertical"
+            android:hint="@string/search_hint"
+            android:paddingLeft="@dimen/customEditMargin"
+            android:textSize="14sp"
+            />
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="50dp"
+            binding:pstsIndicatorColor="@color/colorAccentThemeLight"
+            binding:pstsIndicatorHeight="3dp"
+            binding:pstsTabTextSize="16sp"
+            android:paddingHorizontal="16dp"
+            binding:pstsTabTextColor="@color/tab_color"
+            >
+
+
+        </com.astuetz.PagerSlidingTabStrip>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:items="@{vm.pageList}"
+            binding:itemBinding="@{vm.readListPageBinding}"
+            binding:pageTitles="@{vm.pageTitles}"
+            >
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
+</layout>

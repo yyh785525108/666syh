@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.book.book_home.NavItemVM"/>
+
+
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/horizontal_edge_space"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.CustomRoundCornerTextView
+            android:id="@+id/customRoundCornerTextView2"
+            android:layout_width="@dimen/type_card_size"
+            android:layout_height="@dimen/type_card_size"
+            android:gravity="center"
+            app:imgBg="@{vm.src}"
+            android:text="@{vm.title}"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:clickable="true"
+            app:onClickCommand="@{vm.navClickCmd}"
+/>
+    </FrameLayout>
+</layout>

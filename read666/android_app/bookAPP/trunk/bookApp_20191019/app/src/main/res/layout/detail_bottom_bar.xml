@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <data>
+        <import type="com.tchy.syh.R"/>
+        <import type="com.tchy.syh.utils.NumberFormatUtil"/>
+        <variable
+            name="vm"
+            type="com.tchy.syh.common.CommonBottomBarVM" />
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/horizontal_edge_space"
+    android:paddingVertical="6dp"
+    android:background="@drawable/line_bottom_top_bg"
+
+    >
+
+  <ImageView
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:padding="5dp"
+      android:layout_centerVertical="true"
+      android:src="@mipmap/back_black_small"
+      app:onClickCommand="@{vm.backClick}"
+      />
+    <TextView
+        android:id="@+id/recomment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="@{vm.hasComment?0:8}"
+        app:onClickCommand="@{vm.commentClick}"
+        android:text='@{NumberFormatUtil.format(vm.bean.comment_num,1000,"K+")}'
+        android:gravity="center"
+        android:drawableTop="@mipmap/comment"
+
+        android:textSize="12sp"
+        android:layout_marginRight="18dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/up"
+        app:drawTop="@{R.mipmap.recomment}"
+        app:imgSize="@{24}"
+        />
+    <TextView
+        android:id="@+id/up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:text='@{NumberFormatUtil.format(vm.upNum,1000,"K+")}'
+        android:gravity="center"
+        android:drawableTop="@mipmap/right_up"
+        android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+
+        app:tintColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:layout_centerVertical="true"
+        android:textSize="12sp"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/collect"
+        app:onClickCommand="@{vm.upClick}"
+
+
+        />
+    <TextView
+        android:id="@+id/collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@mipmap/star_red_bold"
+        app:tintColor="@{vm.isCollect==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:layout_centerVertical="true"
+        android:text='@{NumberFormatUtil.format(vm.collectNum,1000,"K+")}'
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textColor="@{vm.isCollect==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:layout_alignParentRight="true"
+        app:onClickCommand="@{vm.collectClick}"
+        />
+
+</RelativeLayout>
+</layout>

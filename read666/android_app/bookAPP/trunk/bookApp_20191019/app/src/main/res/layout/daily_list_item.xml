@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="com.tchy.syh.daily_advance.daily_list.DailyListItemVm" />
+        <import type="com.tchy.syh.utils.TimeFormatUtil" />
+        <import type="me.goldze.mvvmhabit.utils.StringUtils" />
+
+        <import type="com.tchy.syh.utils.NumberFormatUtil" />
+        <variable
+            name="vm"
+            type="DailyListItemVm" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/comment_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line_bottom_grey_bg"
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text='@{vm.nickname}'
+            android:textColor="@color/textColorHintThemeLight"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:maxEms="9"
+            android:text="@{TimeFormatUtil.formatLatest(vm.entity.add_time)}"
+            android:textColor="@color/textColorHintThemeLight"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorThemeLight"
+            android:textSize="14sp"
+            android:text="@{vm.entity.content}"
+            android:paddingVertical="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:background="@drawable/backgroung_round_bg_dailygz"
+            android:textSize="11sp"
+            android:text="@{vm.isAttention==1?@string/close_attention:@string/attention}"
+            android:drawablePadding="10dp"
+            app:onClickCommand="@{vm.upAttention}"
+            android:gravity="center"
+            android:textColor="@color/TextGuanzhuColor"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        <LinearLayout
+            android:id="@+id/layoutView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            >
+
+            <com.lzy.ninegrid.NineGridView
+                android:id="@+id/nineGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:ngv_gridSpacing="3dp"
+                app:ngv_maxSize="9"
+                app:ngv_mode="grid"
+                app:adapter="@{vm.adapter}"
+                app:ngv_singleImageRatio="1"
+                app:ngv_singleImageSize="250dp"
+                android:visibility="@{vm.entity.type== 0?0:8}"
+                />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{vm.entity.type== 1?0:8}"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/backgroung_round_bg_alph"
+                    android:layout_marginLeft="10dp">
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="3dp"
+                        android:src="@{vm.entity.content}"/>
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/backgroung_round_bg_dailygz"/>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginLeft="13dp"
+                        android:src="@mipmap/play_white_2"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="90dp"
+                            android:text="第一课时 学习的栋梁"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/textColorDarkThemeLight"
+                            android:textSize="18sp"/>
+                </RelativeLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/layoutView"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/icon_liulan_nor"
+                    android:drawablePadding="5dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@{vm.browse}"
+                    android:textSize="13sp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:onClickCommand="@{vm.onCommentClick}">
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/icon_comment_nor"
+                    android:drawablePadding="5dp"
+                    android:text="@{vm.comment}"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="13sp"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@{vm.isUp==1?@drawable/icon_dianzan_nor:@drawable/icon_dianzan_sel}"
+                    app:tintColor='@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}'
+                    drawSize="@{16}"
+                    android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                    app:onClickCommand="@{vm.upClick}"
+                    android:drawablePadding="5dp"
+                    android:text='@{vm.recommend}'
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="13sp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

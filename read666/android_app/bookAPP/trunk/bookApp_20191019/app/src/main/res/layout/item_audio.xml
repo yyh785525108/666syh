@@ -1,0 +1,115 @@
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.utils.TimeFormatUtil" />
+
+        <variable
+            name="viewModel"
+            type="com.tchy.syh.listen.detail.AudioItemViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffffff"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        binding:onClickCommand="@{viewModel.itemClick}">
+
+        <TextView
+            android:id="@+id/sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:minWidth="22dp"
+            android:text="@{viewModel.sort}"
+            android:textColor="@{viewModel.textColor}"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/sort"
+            android:lines="1"
+            android:maxWidth="210dp"
+            android:text="@{viewModel.mAudioEntity.title}"
+            android:textColor="@{viewModel.textColor}"
+            android:textSize="15sp" />
+
+        <com.tchy.syh.listen.view.ImageTextButton
+            android:id="@+id/itb_play_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/sort"
+            app:itb_bg="#00000000"
+            app:itb_bg_pressed="#00000000"
+            app:itb_icon="@mipmap/play_num"
+            app:itb_icon_position="left"
+            app:itb_icon_size="13dp"
+            app:itb_icon_text_marggin="5dp"
+            app:itb_text="@{viewModel.mAudioEntity.play_num}"
+            app:itb_text_color="#7D7D7D"
+            app:itb_text_size="12sp" />
+
+        <com.tchy.syh.listen.view.ImageTextButton
+            android:visibility="gone"
+            android:id="@+id/itb_comment_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/itb_play_num"
+            app:itb_bg="#00000000"
+            app:itb_bg_pressed="#00000000"
+            app:itb_icon="@mipmap/comment_2"
+            app:itb_icon_position="left"
+            app:itb_icon_size="13dp"
+            app:itb_icon_text_marggin="5dp"
+            app:itb_text_color="#7D7D7D"
+            app:itb_text_size="12sp"
+            binding:itb_text="@{viewModel.cn}" />
+
+        <com.tchy.syh.listen.view.ImageTextButton
+            android:id="@+id/itb_audio_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/itb_comment_num"
+            app:itb_bg="#00000000"
+            app:itb_bg_pressed="#00000000"
+            app:itb_icon="@mipmap/duration"
+            app:itb_icon_position="left"
+            app:itb_icon_size="13dp"
+            app:itb_icon_text_marggin="5dp"
+            app:itb_text_color="#7D7D7D"
+            app:itb_text_size="12sp"
+            binding:itb_text="@{viewModel.mAudioEntity.duration}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:text="@{TimeFormatUtil.format(viewModel.mAudioEntity.update_time)}"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/sort"
+            android:background="#E7E7E7" />
+    </RelativeLayout>
+</layout>

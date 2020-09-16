@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.tchy.syh.custom.edittext.CustomEditText" />
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.userAccount.AccountCommonVm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isShowLeftButton="true"
+            app:isShowRightButton="false"
+            app:leftButtonIcon="@mipmap/back_black_small"
+            app:toolbarTitle="实名认证"
+
+            ></com.tchy.syh.custom.toolbar.CustomToolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+
+                android:paddingTop="24dp"
+                android:paddingBottom="84dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="身份证正面"
+                    android:textColor="#333"
+                    android:textSize="18sp"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/pic_front"
+                    android:layout_width="256dp"
+                    android:layout_height="162dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bordered_dashbold"
+                    android:src="@drawable/ic_add_black_24dp"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/dividerColorThemeLight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="身份证背面"
+                    android:textColor="#333"
+                    android:textSize="18sp"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/pic_back"
+
+                    android:layout_width="256dp"
+                    android:layout_height="162dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bordered_dashbold"
+                    android:src="@drawable/ic_add_black_24dp"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/dividerColorThemeLight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="手持身份证"
+                    android:textColor="#333"
+                    android:textSize="18sp"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/pic_take"
+
+                    android:layout_width="256dp"
+                    android:layout_height="162dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bordered_dashbold"
+                    android:src="@drawable/ic_add_black_24dp"
+
+                    />
+
+
+
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccentThemeLight"
+            android:layout_marginTop="60dp"
+            android:textColor="#fff"
+            android:minHeight="50dp"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/submit" />
+    </RelativeLayout>
+
+
+</layout>

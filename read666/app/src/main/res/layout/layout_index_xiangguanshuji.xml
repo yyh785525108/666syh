@@ -1,0 +1,305 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/shape_corner_white"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/xiezuoyeLay"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#60FCEED3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/jxzy_p" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/img"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精选作业"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="与书友一起深度学习"
+                android:textColor="#ff999999"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/shape_corner_xiezuoye"
+            android:paddingLeft="12dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="6dp"
+            android:text="写作业"
+            android:textColor="#aca756"
+            android:textSize="12dp"
+
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/blueImg"
+            android:layout_width="@dimen/dp_4"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/shape_corner_blue_line"/>
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/blueImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="相关书籍"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="#ff232122" />
+
+        <ImageView
+            android:id="@+id/jiantou2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/jiantou2"
+            android:gravity="center_vertical"
+            android:text="更多"
+            android:textColor="#ff999999" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ViewColor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/xiangguanLay1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/xiangguanImg1"
+                    android:layout_width="60dp"
+                    android:layout_height="88dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/yinping_logoimg" />
+
+                <TextView
+                    android:id="@+id/xiangguanNameTv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="我是书名"
+                    android:textColor="#ff232122"
+                    android:textSize="12dp" />
+                <TextView
+
+
+                    android:id="@+id/xiangguanContentTv1"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="100点击"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="10dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/xiangguanLay2"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/xiangguanImg2"
+                    android:layout_width="60dp"
+                    android:layout_height="88dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/yinping_logoimg" />
+
+                <TextView
+                    android:id="@+id/xiangguanTv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="我是书名"
+                    android:textColor="#ff232122"
+
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/xiangguanContentTv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="100点击"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/xiangguanLay3"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/xiangguanImg3"
+                    android:layout_width="60dp"
+                    android:layout_height="88dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/yinping_logoimg" />
+
+                <TextView
+                    android:id="@+id/xiangguanTv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="我是书名"
+                    android:textColor="#ff232122"
+
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/xiangguanContentTv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="100点击"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/xiangguanLay4"
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/xiangguanImg4"
+                    android:layout_width="60dp"
+                    android:layout_height="88dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/yinping_logoimg" />
+
+                <TextView
+                    android:id="@+id/xiangguanTv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="我是书名"
+                    android:textColor="#ff232122"
+
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/xiangguanContentTv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLength="5"
+                    android:text="100点击"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ViewColor" />
+
+</LinearLayout>

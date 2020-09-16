@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="me.goldze.mvvmhabit.utils.SPUtils"/>
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.VIPVM" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowLeftButton="true"
+            binding:isShowRightButton="false"
+            binding:isShowSearchView="false"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+            binding:toolbarTitle="开通VIP会员"
+
+            >
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="10dp">
+
+                <RelativeLayout
+                    android:layout_width="380dp"
+                    android:layout_height="220dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/vip_bg" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="50dp"
+
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="48dp"
+                        android:layout_marginTop="32dp"
+                        binding:civ_border_color="@color/white"
+                        binding:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/nickName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_alignTop="@+id/avatar"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/avatar"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/tv_price"
+                        android:layout_alignLeft="@+id/tv_price"
+                        android:text="黄金会员"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="32dp"
+                        android:layout_marginLeft="48dp"
+                        android:text="@string/vip_price"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/bordered_small_corner_bg"
+                    android:elevation="4dp"
+                    android:orientation="vertical"
+                    android:paddingVertical="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/horizontal_edge_space"
+                        android:paddingVertical="15dp">
+
+                        <ImageView
+                            android:id="@+id/icon1"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/book_grey_round_bg" />
+
+                        <TextView
+                            android:id="@+id/title1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/icon1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/icon1"
+                            android:text="一书一课（66堂课）"
+                            android:textColor="#333"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/title1"
+                            android:layout_below="@+id/title1"
+                            android:layout_marginTop="5dp"
+                            android:text="每年66本优质新书，图文、音频、视频解读"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/horizontal_edge_space"
+                        android:paddingVertical="15dp">
+
+                        <ImageView
+                            android:id="@+id/icon2"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/play_grey_round_bg" />
+
+                        <TextView
+                            android:id="@+id/title2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/icon2"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/icon2"
+                            android:text="悦享无阻"
+                            android:textColor="#333"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/title2"
+                            android:layout_below="@+id/title2"
+                            android:layout_marginTop="5dp"
+                            android:text="享受往前会员专享内容自动解锁"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/horizontal_edge_space"
+                        android:paddingVertical="15dp">
+
+                        <ImageView
+                            android:id="@+id/icon3"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/diamond_grey_round_bg" />
+
+                        <TextView
+                            android:id="@+id/title3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/icon3"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/icon3"
+                            android:text="乐享积分"
+                            android:textColor="#333"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/title3"
+                            android:layout_below="@+id/title3"
+                            android:layout_marginTop="5dp"
+                            android:text="积分兑换更多限量礼品"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/horizontal_edge_space"
+                        android:paddingVertical="15dp">
+
+                        <ImageView
+                            android:id="@+id/icon4"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/tag_grey_round_bg" />
+
+                        <TextView
+                            android:id="@+id/title4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@+id/icon4"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/icon4"
+                            android:text="优惠多多"
+                            android:textColor="#333"
+                            android:textSize="18sp"></TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/title4"
+                            android:layout_below="@+id/title4"
+                            android:layout_marginTop="5dp"
+                            android:text="音频专栏一律1折起"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/dividerColorThemeLight"></View>
+
+                    <Button
+                        android:id="@+id/submit"
+                        style="@style/filledBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="40dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/filled_round_corner_gold_bg"
+                        android:text="立即开通"
+
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+</layout>

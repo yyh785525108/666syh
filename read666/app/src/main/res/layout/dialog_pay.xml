@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_outside_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/rl_inputdlg_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <com.yyh.read666.view.CircleImageView
+                android:id="@+id/headImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/head" />
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/headImg"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/headImg"
+                android:text="学习收费内容"
+                android:textColor="#ff232122"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/priceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="价格：￥99.00元"
+                android:layout_alignLeft="@+id/userName"
+                android:layout_below="@+id/userName"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ViewColor" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_42"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="@dimen/dp_12"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#ff232122"
+                android:text="手机号码"/>
+            <EditText
+                android:id="@+id/phoneEt"
+                android:textSize="14sp"
+                android:textColor="#ff232122"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:paddingLeft="12dp"
+                android:paddingRight="@dimen/dp_12"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:hint="请输入手机号码，方便售后"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ViewColor" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_10">
+
+
+
+                    <Button
+                        android:id="@+id/confirmBtn"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="40dp"
+                        android:background="@drawable/shape_corner_login_blue"
+                        android:gravity="center"
+                        android:text="立即支付"
+                        android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+</RelativeLayout>

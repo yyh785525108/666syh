@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">666书友会</string>
+    <string name="login_account">登录</string>
+    <string name="reg">注册</string>
+    <string name="mobile">手机号码</string>
+    <string name="password">密码</string>
+    <string name="verify_code">手机验证码</string>
+    <string name="submit">提交</string>
+    <string name="no_ranking">暂无排名</string>
+    <string name="input_verify_code">输入验证码</string>
+    <string name="get_verify_code">获得验证码</string>
+    <string name="counter">剩余 %d 秒</string>
+    <string name="playnum">%s次播放</string>
+    <string name="account_login">账号密码登录</string>
+    <string name="mobile_login">短信快捷登录</string>
+    <string name="forget_pwd">忘记密码</string>
+    <string name="third_party_login">第三方登录</string>
+    <string name="num">%d</string>
+
+    <string name="choose">请选择</string>
+
+    <string name="pm">第%d名</string>
+    <string name="book">读书</string>
+    <string name="listen">书库</string>
+    <string name="read">日精进</string>
+    <string name="my">我的</string>
+    <string name="reply_count">相关回复共%d条</string>
+    <string name="search_hint">搜索</string>
+    <string name="signed_day">累计签到%d天</string>
+    <string name="point">%d积分</string>
+    <string name="pointMoney">%d积分 / ¥ %s元</string>
+    <string name="pointMoneyNum">%d积分 / ¥ %d元</string>
+    <string name="buynum">%d人已拥有</string>
+    <string name="pointStr">%s积分</string>
+    <string name="more">更多</string>
+    <string name="new_book">近期新书</string>
+    <string name="day_book">每日必听</string>
+    <string name="totalmoney">¥ %s元</string>
+
+    <string name="moneyStr">/ ¥ %s</string>
+    <string name="moneyNum">/ ¥ %d</string>
+    <string name="recommand_book">精品好书</string>
+
+    <string name="limit_free">限时免费</string>
+    <string name="message">消息中心</string>
+    <string name="goodnum">x%d</string>
+    <string name="no">#%d</string>
+    <string name="mission_desp">任务中心说明：\n 1、【签到】进入任务中心即可签到，获得积分（首日可获5积分，
+7曰内连续签到获得的积分数量逐日累加;第8日或签到中断则重新
+累加）；【每日日任务】完成后需返回任务中心领取积分；
+【新手任务】新用户首次完成后，需返回任务中心领取积分
+\n 2、获得积分后，请进入【积分商城】进行消费。超值商品等你兑,
+大奖等你抽~
+
+
+    </string>
+    <string name="get_point">成功获得积分</string>
+    <string name="plus"><b>+%s</b></string>
+    <string name="vote"><b>投一票(%d)</b></string>
+    <string name="vip_price"><b><i>VIP </i>  ¥ 366</b></string>
+
+    <string name="vip_reg">开通VIP会员</string>
+    <string name="vip_level">VIP等级：%s</string>
+    <string name="vip_limit">截止时间：%s</string>
+    <string name="collect_audio">%d订阅</string>
+    <string name="toast_cache"><b>缓存清除成功</b></string>
+    <string name="toast_point"><b>积分领取成功</b></string>
+    <string name="toast_downloading"><b>下载中</b></string>
+
+    <string name="toast_send"><b>发表成功</b></string>
+    <string name="toast_share"><b>分享成功</b></string>
+    <string name="toast_collect"><b>收藏成功</b></string>
+    <string name="toast_up"><b>点赞成功</b></string>
+    <string name="toast_dashang"><b>打赏成功</b></string>
+    <string name="notice_video"><b>注意：试看结束,</b></string>
+
+    <string name="notice_video_vip"><b>VIP会员可免费观看</b></string>
+
+    <!--日精进-->
+    <string name="attention">关注</string>
+    <string name="close_attention">已关注</string>
+    <string name="album">集</string>
+    <string name="subscribe">订阅</string>
+
+    <string name="day_book_update_time">每天早上6:30更新</string>
+    <string name="recent_book_update_time">每周六晚8点更新</string>
+</resources>

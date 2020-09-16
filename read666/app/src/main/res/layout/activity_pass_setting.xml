@@ -1,0 +1,210 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_top" />
+
+
+    <LinearLayout
+        android:layout_below="@+id/statusLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/lay_color"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="旧密码："
+                    android:textColor="#ff232122"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/oldPassEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:hint="请输入您的旧密码"
+                    android:singleLine="true"
+                    android:src="@drawable/icon_jiantou"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:background="@color/ViewColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/lay_color"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="新密码："
+                    android:textColor="#ff232122"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/newPassEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:hint="请输入您的新密码"
+                    android:singleLine="true"
+                    android:src="@drawable/icon_jiantou"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:background="@color/ViewColor" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/lay_color"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="确认密码："
+                    android:textColor="#ff232122"
+                    android:textSize="14dp" />
+
+                <EditText
+                    android:id="@+id/newPassCorfirmEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:hint="请再次输入您的新密码"
+                    android:singleLine="true"
+                    android:src="@drawable/icon_jiantou"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:background="@color/ViewColor" />
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/commitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/shape_corner_commit"
+            android:text="确定提交"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:visibility="gone"
+
+        android:id="@+id/shuodianLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A0000000">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="#FFFFFF"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:id="@+id/tips3Tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发表评论"
+                android:textStyle="bold"
+                android:textColor="#ff232122"
+                android:textSize="14dp"
+                android:layout_margin="12dp"/>
+            <Button
+                android:id="@+id/shuodianCloseBtn"
+                android:layout_alignTop="@id/tips3Tv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/close"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                />
+
+            <EditText
+                android:id="@+id/shuodianContentEt"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_140"
+                android:layout_alignLeft="@id/tips3Tv"
+                android:gravity="top|left"
+                android:padding="4dp"
+                android:layout_below="@id/tips3Tv"
+                android:layout_marginRight="12dp"
+                android:background="#F3F3F3"
+                />
+            <Button
+                android:id="@+id/shuodianCommitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="发表"
+                android:textSize="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/shuodianContentEt"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="12dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/shape_corner_guanzhu_n"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

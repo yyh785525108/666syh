@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/indexAllLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tab1Tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="2dp"
+                    android:text="读书"
+                    android:textSize="20dp"
+                    android:textColor="#ff333333"
+                    />
+
+                    <LinearLayout
+                        android:id="@+id/sousuoLay"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/shape_corner_gray">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/search"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_marginLeft="8dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="一分钟说话"/>
+                    </LinearLayout>
+            </LinearLayout>
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+
+            <!--全部 直播 视频-->
+            <!--每日一听-->
+            <include layout="@layout/layout_index_tabs" />
+
+            <include layout="@layout/layout_index_meiriyiting"
+               />
+            <!--本周更新-->
+            <include layout="@layout/layout_index_benzhougengxin"
+                />
+
+            <RelativeLayout
+                android:id="@+id/vipkaitongLay"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="@dimen/dp_16"
+
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/vip_kaitong" />
+                <ImageView
+                    android:id="@+id/closeImg"
+                    android:src="@drawable/close2"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginTop="@dimen/dp_6"/>
+            </RelativeLayout>
+
+            <!--限时免费-->
+            <include layout="@layout/layout_index_xianshimianfei"
+                />
+            <!--近期新书-->
+            <!--猜你喜欢-->
+            <include layout="@layout/layout_index_jinqixinshu" />
+            <!--今日热搜-->
+            <include layout="@layout/layout_index_jinririsou" />
+
+            <include layout="@layout/layout_index_cainixihuan"
+               />
+
+            <!--本周热门-->
+            <include layout="@layout/layout_index_benzhourimen"
+                />
+            <!--今日热评-->
+            <include layout="@layout/layout_index_jinrireping"
+                />
+            <!--书友推荐-->
+            <include layout="@layout/layout_index_shuyoutuijian"
+                />
+            <!--新课推荐-->
+            <include layout="@layout/layout_index_xinketuijian"
+                />
+            <!--今日达人-->
+            <include layout="@layout/layout_index_jinridaren"
+                />
+            <!--底部广告-->
+            <include layout="@layout/layout_index_guanggao_bottom"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

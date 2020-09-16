@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.daily_advance.daily_home.DailyCommentVm" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowRightButton="false"
+            binding:toolbarTitle="@{vm.title}"
+            binding:isShowLeftButton="true"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+
+            >
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line_bottom_grey_bg"
+                android:paddingLeft="@dimen/horizontal_edge_space"
+                android:paddingTop="16dp"
+                android:paddingRight="@dimen/horizontal_edge_space"
+                android:paddingBottom="13dp">
+
+
+            </RelativeLayout>
+
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    binding:layout_behavior="@string/appbar_scrolling_view_behavior">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/comment_root"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/line_bottom_grey_bg"
+                        android:paddingTop="8dp"
+
+                        android:paddingBottom="5dp"
+                        >
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="8dp"
+                            android:scaleType="centerCrop"
+                            binding:layout_constraintStart_toStartOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="16dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text='@{vm.nickname}'
+                            android:textColor="@color/textColorHintThemeLight"
+                            android:textSize="14sp"
+                            binding:layout_constraintEnd_toStartOf="@+id/textView7"
+                            binding:layout_constraintHorizontal_bias="0.0"
+                            binding:layout_constraintStart_toEndOf="@+id/imageView2"
+                            binding:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/textViewday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="16dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text='@{vm.nickname}'
+                            android:textColor="@color/textColorHintThemeLight"
+                            android:textSize="12sp"
+                            binding:layout_constraintEnd_toStartOf="@+id/textView7"
+                            binding:layout_constraintHorizontal_bias="0.0"
+                            binding:layout_constraintStart_toEndOf="@+id/textView4"
+                            binding:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="16dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:maxEms="9"
+                            android:text='@{vm.entity.add_time}'
+                            android:textColor="@color/textColorHintThemeLight"
+                            android:textSize="14sp"
+                            binding:layout_constraintHorizontal_bias="0.0"
+                            binding:layout_constraintStart_toEndOf="@+id/imageView2"
+                            binding:layout_constraintTop_toBottomOf="@+id/textView4" />
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textColorThemeLight"
+                            android:textSize="16sp"
+                            android:text="@{vm.entity.content}"
+                            android:paddingVertical="5dp"
+                            android:lineSpacingMultiplier="1.2"
+                            android:layout_margin="10dp"
+                            binding:layout_constraintEnd_toEndOf="parent"
+                            binding:layout_constraintHorizontal_bias="0.0"
+                            binding:layout_constraintRight_toRightOf="parent"
+                            binding:layout_constraintStart_toStartOf="@+id/imageView2"
+                            binding:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:background="@drawable/backgroung_round_bg_shadow"
+                            android:textSize="11sp"
+                            android:text="@{vm.isAttention==1?@string/close_attention:@string/attention}"
+                            android:drawablePadding="10dp"
+                            binding:onClickCommand="@{vm.upAttention}"
+                            android:gravity="center"
+                            android:textColor="@color/TextGuanzhuColor"
+                            binding:layout_constraintBottom_toBottomOf="@+id/textView4"
+                            binding:layout_constraintEnd_toEndOf="parent"
+                            binding:layout_constraintTop_toTopOf="@+id/textView4" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/textColorDarkThemeLight"
+                                android:textSize="16sp"
+                                android:layout_margin="5dp"
+                                android:text="小礼物走一走, 来666书友会关注我吧"
+                                android:paddingVertical="5dp"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:drawableTop="@{vm.isUp==1?@drawable/star_black_bold:@drawable/star_red_bold}"
+                                android:drawablePadding="5dp"
+                                android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                                android:textSize="16sp"
+                                android:text="收藏" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:drawableTop="@{vm.isUp==1?@drawable/up_black_bold:@drawable/up_red_bold}"
+                                android:drawablePadding="5dp"
+                                android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                                android:textSize="16sp"
+                                android:text="推荐" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:drawableTop="@{vm.isUp==1?@drawable/up_black_bold:@drawable/up_red_bold}"
+                                android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                                android:drawablePadding="5dp"
+                                android:text="打赏"
+                                android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="true"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_below="@id/itb_share"
+                            android:background="#F8F8F8" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        binding:itemBinding="@{vm.itemBinding}"
+                        binding:items="@{vm.commentList}"
+                        binding:layoutManager="@{LayoutManagers.linear()}"
+                        binding:layout_constraintEnd_toEndOf="parent"
+                        binding:layout_constraintStart_toStartOf="parent"
+                        binding:onLoadMoreCommand="@{vm.onRVLoadMoreCommand}">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rv"
+                        android:paddingVertical="10dp"
+                        android:background="@drawable/line_top_grey_bg"
+                        android:orientation="horizontal"
+                        android:visibility="@{!vm.isLoadMoreFinish?0:8}"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="正在加载更多"
+                            android:textColor="#ddd"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <RelativeLayout
+                android:id="@+id/bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/line_bottom_top_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                binding:layout_behavior="@string/bottom_sheet_behavior"
+                android:paddingVertical="8dp">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp"
+                    android:src="@mipmap/back_black_small"
+                    binding:onClickCommand="@{vm.backClick}" />
+
+                <TextView
+                    android:id="@+id/et_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_toLeftOf="@+id/dashang"
+                    android:layout_toRightOf="@+id/back"
+                    android:background="@drawable/filled_round_big_corner_grey_bg"
+                    android:clickable="true"
+                    android:drawableLeft="@mipmap/input"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:hint="请输入评论内容"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

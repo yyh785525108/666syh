@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.settings.AccountSettingVM"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dividerColorThemeLight"
+        android:orientation="vertical">
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowRightButton="false"
+            binding:isShowSearchView="false"
+            binding:toolbarTitle="账号与安全"
+            binding:isShowLeftButton="true"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+
+            >
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+
+        <RelativeLayout
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingHorizontal="16dp"
+            binding:onClickCommand="@{vm.mobileClick}"
+            android:background="@drawable/line_bottom_grey_bg"
+            >
+          <LinearLayout
+
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_centerVertical="true"
+              >
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="绑定手机"
+                  android:textSize="16sp"
+                  android:layout_centerVertical="true"
+                  android:textColor="#333"
+                  />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@{vm.mobile}"
+                  android:textSize="14sp"
+                  android:layout_centerVertical="true"
+                  />
+          </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="去修改"
+                android:layout_centerVertical="true"
+                android:drawablePadding="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/textColorThemeLight"
+                android:drawableTint="@color/textColorThemeLight"
+                android:drawableRight="@mipmap/forward_black_big"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/realcert"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingHorizontal="16dp"
+            binding:onClickCommand="@{vm.realClick}"
+            android:background="@drawable/line_bottom_grey_bg"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="实名认证"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="#333"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.real}"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text=""
+                android:layout_centerVertical="true"
+                android:drawablePadding="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/textColorThemeLight"
+                android:drawableTint="@color/textColorThemeLight"
+                android:drawableRight="@mipmap/forward_black_big"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/pwd"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingHorizontal="16dp"
+            binding:onClickCommand="@{vm.pwdClick}"
+            android:background="@drawable/line_bottom_grey_bg"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="登录密码"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="#333"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.pwd}"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="去修改"
+                android:layout_centerVertical="true"
+                android:drawablePadding="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/textColorThemeLight"
+                android:drawableTint="@color/textColorThemeLight"
+                android:drawableRight="@mipmap/forward_black_big"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

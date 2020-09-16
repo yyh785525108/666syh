@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.shopping.address.ModVM"/>
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f5f5f5"
+    >
+    <com.tchy.syh.custom.toolbar.CustomToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        binding:isShowRightButton="false"
+        binding:isShowSearchView="false"
+        binding:toolbarTitle="收货地址"
+        binding:isShowLeftButton="true"
+        binding:leftButtonIcon="@mipmap/back_black_small"
+
+        ></com.tchy.syh.custom.toolbar.CustomToolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/horizontal_edge_space"
+        android:background="@drawable/line_bottom_grey_bg"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorDarkThemeLight"
+            android:text="收货人："
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={vm.name}"
+            android:background="@null"
+            android:padding="0dp"
+
+            android:hint="请填写收货人姓名"
+            android:layout_alignParentRight="true"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/horizontal_edge_space"
+        android:background="@drawable/line_bottom_grey_bg"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorDarkThemeLight"
+            android:text="联系方式："
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={vm.mobile}"
+            android:background="@null"
+            android:padding="0dp"
+            android:hint="请填写收货人电话"
+            android:layout_alignParentRight="true"
+            />
+
+    </LinearLayout>
+   <RelativeLayout
+       android:id="@+id/selector"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="@dimen/horizontal_edge_space"
+       android:background="@drawable/line_bottom_grey_bg"
+       >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorDarkThemeLight"
+        android:text="所在地区："
+        />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@{vm.result.length>0?vm.result:@string/choose}"
+           android:id="@+id/address"
+           android:layout_alignParentRight="true"
+           android:drawableEnd="@mipmap/forward_black_big"
+           android:drawablePadding="10dp"
+           />
+
+   </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/horizontal_edge_space"
+        android:background="@drawable/line_bottom_grey_bg"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorDarkThemeLight"
+            android:text="详细地址："
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={vm.detail}"
+            android:background="@null"
+            android:hint="请填写详细地址，如道路、门牌号、小区、楼栋号、单元室等"
+            android:layout_alignParentRight="true"
+            />
+
+    </LinearLayout>
+
+    <Button
+        style="@style/filledBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filled_round_corner_gradient_bg"
+        android:layout_marginBottom="@dimen/horizontal_edge_space"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="@dimen/horizontal_edge_space"
+        app:onClickCommand="@{vm.createClick}"
+        android:textColor="@color/textColorInverseThemeLight"
+        android:text="保存地址"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        />
+</LinearLayout>
+
+
+
+
+</layout>

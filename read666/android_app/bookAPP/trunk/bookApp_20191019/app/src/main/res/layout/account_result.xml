@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.userAccount.ResultVM" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowRightButton="false"
+            binding:toolbarTitle="@{vm.title}"
+            binding:isShowLeftButton="true"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+
+            >
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+       <ImageView
+           android:id="@+id/icon"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:scaleType="fitCenter"
+           android:src="@mipmap/register"
+           drawableid="@{vm.iconid}"
+           android:layout_marginTop="80dp"
+           />
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{vm.msg}"
+            android:textColor="@color/textColorDarkThemeLight"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+        <Button
+
+            android:id="@+id/button3"
+            style="@style/filledBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_marginHorizontal="@dimen/horizontal_edge_space"
+            android:layout_marginTop="60dp"
+            android:visibility="@{vm.btnText.length()>0?0:8}"
+            android:text="@{vm.btnText}"
+            binding:onClickCommand="@{vm.click}"
+         />
+
+    </LinearLayout>
+</layout>

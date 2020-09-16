@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_corner_jishu">
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#ff232122"
+            android:text="1"/>
+        <TextView
+            android:id="@+id/vipTv"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_16"
+            android:text="VIP"
+            android:textSize="8dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/shape_corner_jishu2"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>

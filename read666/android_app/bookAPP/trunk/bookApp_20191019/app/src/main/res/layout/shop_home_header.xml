@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:minHeight="130dp"
+                 >
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <com.rd.PageIndicatorView
+                    android:id="@+id/pageIndicatorView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/banner"
+                    android:layout_centerHorizontal="true"
+                    android:paddingBottom="10dp"
+                    app:piv_animationType="thinWorm"
+                    app:piv_padding="10dp"
+                    app:piv_radius="5dp"
+                    app:piv_selectedColor="@color/colorAccentThemeLight"
+                    app:piv_unselectedColor="@color/colorPrimaryThemeLight" />
+
+            </RelativeLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/extra1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@mipmap/vip"
+                binding:layout_constraintDimensionRatio="2.1"
+                binding:layout_constraintEnd_toStartOf="@+id/guideline3"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/extra2"
+
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@mipmap/vip"
+                binding:layout_constraintDimensionRatio="1.64"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toEndOf="@+id/extra1"
+                binding:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/extra3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@mipmap/vip"
+                binding:layout_constraintDimensionRatio="2"
+                binding:layout_constraintEnd_toStartOf="@+id/guideline4"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/extra1"/>
+            <ImageView
+                android:id="@+id/extra4"
+
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@mipmap/vip"
+                binding:layout_constraintDimensionRatio="2.625"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toEndOf="@+id/extra3"
+                binding:layout_constraintTop_toBottomOf="@+id/extra1" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                binding:layout_constraintGuide_percent="0.56" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                binding:layout_constraintGuide_percent="0.44" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#f5f5f5"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line_bottom_grey_bg"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="精选推荐"
+                    android:textColor="#3c3f46"
+                    android:drawableLeft="@mipmap/crown"
+                    android:drawablePadding="10dp"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="更多"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@mipmap/right_arrow_grey"
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+</layout>

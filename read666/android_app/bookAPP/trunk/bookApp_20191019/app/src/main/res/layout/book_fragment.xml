@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.book.book_home.BookViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hasNotify="@{vm.notifyNum>0}"
+            app:isShowRightButton="true"
+            app:isShowSearchView="true"
+            app:rightButtonIcon="@mipmap/msg_default"
+            app:searchText="@{vm.search}"
+            app:searchType="0">
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f5f5f5">
+
+            <LinearLayout
+                app:onClickCommand="@{vm.refreshNetworkClick}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="@{vm.hasNetwork==8?0:8}">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/network_err" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="暂无网络，请点击重试" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#Fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            app:bannerIndex="@{vm.bannerIndex}"
+                            app:itemBinding="@{vm.bannerItemBinding}"
+                            app:items="@{vm.bannerList}"
+                            app:pageTitles="@{vm.pageTitles}"
+                            >
+
+                        </androidx.viewpager.widget.ViewPager>
+
+                        <com.rd.PageIndicatorView
+                            android:id="@+id/pageIndicatorView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:paddingBottom="10dp"
+                            app:pageCount="@{vm.bannerPageCount}"
+                            app:piv_animationType="thinWorm"
+                            app:piv_padding="10dp"
+                            app:piv_radius="5dp"
+                            app:piv_selectedColor="@color/colorAccentThemeLight"
+                            app:piv_unselectedColor="@color/colorPrimaryThemeLight" />
+
+                    </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        app:onClickCommand="@{vm.audioFuctionClick}"
+                        android:clickable="true"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingTop="10dp"
+                            android:layout_gravity="center_horizontal|bottom"
+                            android:src="@mipmap/audio_func"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="音频"
+                            android:textSize="36px"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:paddingTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@mipmap/live_func"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:text="直播"
+                            android:textSize="36px"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        app:onClickCommand="@{vm.shopFuctionClick}"
+                        android:clickable="true"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:paddingTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@mipmap/shop_func"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:text="商城"
+                            android:textSize="36px"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:paddingTop="10dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@mipmap/vip_func"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:text="VIP"
+                            android:textSize="36px"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+
+                        android:paddingBottom="30dp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#f5f5f5" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+                            android:layout_marginTop="10dp">
+
+                            <com.gcssloop.widget.RCRelativeLayout
+                                android:id="@+id/RCRelativeLayout2"
+                                android:clickable="true"
+                                app:onClickCommand="@{vm.navClickCmd}"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                app:layout_constraintDimensionRatio="1"
+                                app:layout_constraintEnd_toStartOf="@+id/RCRelativeLayout"
+                                app:layout_constraintHorizontal_chainStyle="spread"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:round_corner="15dp">
+
+                                <!--任意View-->
+                                <ImageView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@color/colorAccent" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:text="全部"
+
+                                    android:textColor="#fff" />
+
+                            </com.gcssloop.widget.RCRelativeLayout>
+
+                            <com.gcssloop.widget.RCRelativeLayout
+                                android:id="@+id/RCRelativeLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                onClickCommand="@{vm.nav1ClickCmd}"
+                                android:clickable="true"
+
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="1"
+                                app:layout_constraintDimensionRatio="1"
+                                app:layout_constraintEnd_toStartOf="@+id/RCRelativeLayout3"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/RCRelativeLayout2"
+                                app:round_corner="5dp">
+
+                                <!--任意View-->
+                                <ImageView
+                                    android:id="@+id/iv_nav_1"
+                                    url="@{vm.nav1.icon}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop" />
+
+                                <TextView
+                                    android:id="@+id/tv_nav_1"
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:text="@{vm.nav1.name}"
+                                    android:textColor="#fff" />
+
+                            </com.gcssloop.widget.RCRelativeLayout>
+
+                            <com.gcssloop.widget.RCRelativeLayout
+                                android:id="@+id/RCRelativeLayout3"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_centerInParent="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="1"
+                                app:layout_constraintCircleRadius="1dp"
+                                onClickCommand="@{vm.nav2ClickCmd}"
+                                android:clickable="true"
+                                app:layout_constraintDimensionRatio="1"
+                                app:layout_constraintEnd_toStartOf="@+id/RCRelativeLayout4"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/RCRelativeLayout"
+                                app:round_corner="5dp">
+
+                                <!--任意View-->
+                                <ImageView
+                                    android:id="@+id/iv_nav_2"
+                                    url="@{vm.nav2.icon}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop" />
+
+                                <TextView
+                                    android:id="@+id/tv_nav_2"
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_centerInParent="true"
+                                    android:gravity="center"
+                                    android:text="@{vm.nav2.name}"
+                                    android:textColor="#fff" />
+
+                            </com.gcssloop.widget.RCRelativeLayout>
+
+                            <com.gcssloop.widget.RCRelativeLayout
+                                android:id="@+id/RCRelativeLayout4"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                app:layout_constraintDimensionRatio="1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                onClickCommand="@{vm.nav3ClickCmd}"
+                                android:clickable="true"
+                                app:layout_constraintStart_toEndOf="@+id/RCRelativeLayout3"
+                                app:round_corner="5dp"
+                                tools:layout_editor_absoluteY="0dp">
+
+                                <!--任意View-->
+                                <ImageView
+                                    android:id="@+id/iv_nav_3"
+
+                                    url="@{vm.nav3.icon}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:scaleType="centerCrop" />
+
+                                <TextView
+                                    android:id="@+id/tv_nav_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginEnd="10dp"
+                                    android:gravity="center"
+                                    android:text="@{vm.nav3.name}"
+                                    android:textColor="#fff" />
+
+                            </com.gcssloop.widget.RCRelativeLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#f5f5f5" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            android:orientation="vertical">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+                                <ImageView
+                                    android:id="@+id/rv_recent_book_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="10dp"
+                                    android:layout_gravity="center_horizontal|bottom"
+                                    android:src="@mipmap/icon_tags_update_dis"/>
+                                <TextView
+                                    android:id="@+id/rv_recent_book_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/new_book"
+                                    android:layout_toRightOf ="@+id/rv_recent_book_image"
+                                    android:textColor="@color/textColorDarkThemeLight"
+                                    android:textSize="18sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/recent_book_update_time"
+                                    android:layout_toRightOf="@+id/rv_recent_book_text"
+                                    android:textColor="@color/white"
+                                    android:layout_marginLeft="10dp"
+                                    android:padding="2dp"
+                                    android:background="@drawable/backgroung_round_bg_blue"
+                                    android:textSize="12sp" />
+                                <TextView
+                                    android:id="@+id/more"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:clickable="true"
+                                    android:drawableRight="@mipmap/more"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/more"
+                                    android:textColor="@color/textColorThemeLight"
+                                    android:textSize="14sp"
+                                    app:onClickCommand="@{vm.moreBookClick}" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            >
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_recentbook"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:itemBinding="@{vm.bookNewItemBinding}"
+                                app:items="@{vm.recentBookList}"
+                                app:layoutManager="@{LayoutManagers.linear()}"
+
+                                />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#f5f5f5" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            android:orientation="vertical">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+                                <ImageView
+                                    android:id="@+id/rv_audio_book_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="10dp"
+                                    android:layout_gravity="center_horizontal|bottom"
+                                    android:src="@mipmap/icon_tags_audio_dis"/>
+                                <TextView
+                                    android:id="@+id/rv_audio_book_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/day_book"
+                                    android:layout_toRightOf="@+id/rv_audio_book_image"
+                                    android:textColor="@color/textColorDarkThemeLight"
+                                    android:textSize="18sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/day_book_update_time"
+                                    android:layout_toRightOf="@+id/rv_audio_book_text"
+                                    android:textColor="@color/white"
+                                    android:layout_marginLeft="10dp"
+                                    android:padding="2dp"
+                                    android:background="@drawable/backgroung_round_bg_blue"
+                                    android:textSize="12sp" />
+                                <TextView
+                                    android:id="@+id/day_book_more"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:drawableRight="@mipmap/more"
+                                    android:drawablePadding="10dp"
+                                    android:text="@string/more"
+                                    android:textColor="@color/textColorThemeLight"
+                                    android:textSize="14sp"
+                                    app:onClickCommand="@{vm.audioFuctionClick}"
+                                    android:clickable="true"/>
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            >
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_likebook"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:itemBinding="@{vm.bookAudioItemBinding}"
+                                app:items="@{vm.dayBookList}"
+                                app:layoutManager="@{LayoutManagers.linear()}"
+
+                                />
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="5dp">
+                                <ImageView
+                                    android:id="@+id/rv_free_book_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/audio_func"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/limit_free"
+                                    android:textColor="@color/textColorDarkThemeLight"
+                                    android:textSize="18sp" />
+
+                                <com.tchy.syh.custom.CustomSpanedTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:gravity="center"
+                                    android:text="@{vm.selectLimitTime}"
+                                    android:textSize="15sp"
+                                    android:visibility="gone" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#f5f5f5" />
+
+                        <com.tchy.syh.custom.CustomTouchInceptorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:layout_marginTop="5dp"
+                            android:paddingHorizontal="20dp"
+                            >
+
+                            <com.tchy.syh.custom.CustomClipedViewpager
+                                android:id="@+id/free_books"
+                                android:layout_width="match_parent"
+                                android:layout_height="135dp"
+                                android:layout_centerInParent="true"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                app:itemBinding="@{vm.freeBookItemBinding}"
+                                app:items="@{vm.freeBookList}"
+                                app:selectCenter='@{vm.freePageCount}' />
+                        </com.tchy.syh.custom.CustomTouchInceptorLayout>
+
+                        <!--<com.rd.PageIndicatorView-->
+                            <!--android:id="@+id/bookPageIndicator"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_alignParentBottom="true"-->
+                            <!--android:layout_centerHorizontal="true"-->
+                            <!--android:layout_gravity="center_horizontal"-->
+                            <!--app:pageCount="@{vm.freePageCount}"-->
+                            <!--app:piv_animationType="thinWorm"-->
+                            <!--app:piv_padding="10dp"-->
+                            <!--app:piv_radius="3dp"-->
+                            <!--app:piv_selectedColor="@color/colorAccentThemeLight"-->
+                            <!--app:piv_unselectedColor="@color/textColorThemeLight" />-->
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:id="@+id/free_desc_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{vm.selectFreeFName}"
+                                android:textColor="#ea2626"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/free_desc_title"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/free_desc_title" />
+
+                            <TextView
+                                android:id="@+id/free_desc_title"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@{vm.selectFreeName}"
+                                android:textColor="@color/textColorDarkThemeLight"
+                                android:textSize="16sp"
+                                app:layout_constraintStart_toEndOf="@+id/free_desc_type"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/free_desc_summary"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="12dp"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@{vm.selectFreeIntro}"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/free_desc_type" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#f5f5f5" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            android:layout_marginTop="30dp">
+
+                            <com.tchy.syh.custom.CustomRoundCornerImageView
+                                android:id="@+id/extra1"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                app:cornerUrl="@{vm.extra1.img}"
+                                app:layout_constraintDimensionRatio="2"
+                                app:layout_constraintEnd_toStartOf="@+id/extra2"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:onClickCommand="@{vm.extraClick1}" />
+
+                            <com.tchy.syh.custom.CustomRoundCornerImageView
+                                android:id="@+id/extra2"
+
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                app:layout_constraintDimensionRatio="2"
+
+                                android:scaleType="centerCrop"
+                                app:cornerUrl="@{vm.extra2.img}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/extra1"
+                                app:onClickCommand="@{vm.extraClick2}" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+                            android:layout_marginTop="16dp">
+
+                            <com.tchy.syh.custom.CustomRoundCornerImageView
+                                android:id="@+id/extra3"
+                                app:layout_constraintDimensionRatio="2"
+
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:scaleType="centerCrop"
+                                app:cornerUrl="@{vm.extra3.img}"
+                                app:layout_constraintEnd_toStartOf="@+id/extra4"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:onClickCommand="@{vm.extraClick3}" />
+
+                            <com.tchy.syh.custom.CustomRoundCornerImageView
+                                android:id="@+id/extra4"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_weight="1"
+                                app:layout_constraintDimensionRatio="2"
+
+                                android:scaleType="centerCrop"
+                                app:cornerUrl="@{vm.extra4.img}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/extra3"
+                                app:onClickCommand="@{vm.extraClick4}" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </ScrollView>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

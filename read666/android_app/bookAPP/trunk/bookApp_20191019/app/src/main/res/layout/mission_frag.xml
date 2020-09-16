@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.tchy.syh.R" />
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.mission.MissionVM" />
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isShowLeftButton="true"
+            app:leftButtonIcon="@mipmap/back_black_small"
+            app:toolbarTitle="任务中心">
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/horizontal_edge_space">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/signed_day(vm.bean.sign_times)}"
+                    android:textColor="@color/textColorDarkThemeLight"
+                    android:textSize="16sp"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="签到满一周领取豪礼"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="11sp"
+
+                    />
+
+                <LinearLayout
+                    android:id="@+id/containers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="每日任务"
+
+                    android:textColor="@color/textColorDarkThemeLight"
+                    android:textSize="16sp"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:background="?android:attr/listDivider" />
+
+                <LinearLayout
+                    android:id="@+id/daily_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="新手任务"
+                    android:textColor="@color/textColorDarkThemeLight"
+                    android:textSize="16sp"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:background="?android:attr/listDivider" />
+
+               <LinearLayout
+                   android:id="@+id/newer_container"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   >
+
+               </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/textColorThemeLight"
+                    android:text="@string/mission_desp"
+                    />
+            </LinearLayout>
+
+    </ScrollView>
+        <com.tchy.syh.custom.CustomSignedBg
+            android:id="@+id/content"
+            android:layout_width="400dp"
+            android:layout_height="800dp"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:elevation="20dp"
+            android:text="+5"
+            android:gravity="center"
+            android:clickable="true"
+            android:visibility="gone"
+            ></com.tchy.syh.custom.CustomSignedBg>
+    </RelativeLayout>
+</layout>

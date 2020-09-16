@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.tchy.syh.custom.edittext.CustomEditText" />
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.userAccount.AccountCommonVm" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.tchy.syh.custom.toolbar.CustomToolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isShowRightButton="false"
+                app:toolbarTitle="实名认证"
+                app:isShowLeftButton="true"
+                app:leftButtonIcon="@mipmap/back_black_small"
+
+                ></com.tchy.syh.custom.toolbar.CustomToolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="24dp"
+            >
+
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:inputType="text"
+                app:text="@{vm.name}"
+                app:hint="请输入真实姓名"
+                app:label="真实姓名："
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                />
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:inputType="text"
+                app:isSupportSub="false"
+                app:text="@{vm.id}"
+                app:label="身份证号："
+                app:hint="请输入身份证号"
+                app:maxLength="18"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_account"
+                />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/filledBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="下一步"
+                app:onClickCommand="@{vm.certNext}"
+               />
+        </LinearLayout>
+        </LinearLayout>
+   </ScrollView>
+
+</layout>

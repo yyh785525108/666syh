@@ -1,0 +1,70 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/shape_corner_white"
+    android:orientation="horizontal"
+    android:id="@+id/meiriyitingLay">
+
+    <com.yyh.read666.view.CircleImageView
+        android:id="@+id/headImg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/head" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/headImg"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@+id/headImg"
+        android:text="每日一听"
+        android:textColor="#ff232122"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/meiriyitingTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTv"
+        android:layout_alignLeft="@+id/nameTv"
+        android:layout_marginTop="8dp"
+        android:maxLength="16"
+        android:text="第111课（我是课程阿阿）"
+        android:textColor="#ff999999"
+
+        android:textSize="11dp" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/nameTv"
+        android:layout_toRightOf="@+id/nameTv"
+        android:src="@drawable/audio" />
+
+    <TextView
+        android:id="@+id/jinruTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:text="点击进入"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="54dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/jinruTv"
+        android:src="@drawable/fm" />
+
+</RelativeLayout>

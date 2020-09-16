@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.studyRanking.ListVM"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filled_gradient_bg"
+        >
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:padding="13dp"
+            android:tint="#fff"
+
+            android:src="@mipmap/back_black_big"
+            android:layout_centerVertical="true"
+            />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp"
+            onCheckedChangedCommand="@{vm.changed}"
+            >
+            <RadioButton
+                android:id="@+id/week"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="周排行"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center|bottom"
+                android:scaleY="1.2"
+                android:scaleX="1.2"
+                android:checked="true"
+                android:textSize="18sp"
+                android:textColor="@drawable/combo_font_color_selector"
+                />
+            <RadioButton
+                android:id="@+id/all"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="总排行"
+                android:layout_gravity="center|bottom"
+                android:layout_weight="1"
+                android:button="@null"
+                android:textSize="18sp"
+
+                android:textColor="@drawable/combo_font_color_selector"
+                />
+        </RadioGroup>
+
+    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            items="@{vm.listItems}"
+            itemBinding="@{vm.itemBinding}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</layout>

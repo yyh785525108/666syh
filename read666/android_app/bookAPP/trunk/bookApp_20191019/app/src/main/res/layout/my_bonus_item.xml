@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.tchy.syh.utils.TimeFormatUtil" />
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.bonus.ListItemVM"/>
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:paddingVertical="12dp"
+
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/plus(vm.bean.money)}"
+
+                android:textColor="@color/textPoint"
+                android:textSize="14sp"
+                binding:layout_constraintBottom_toBottomOf="@+id/textView42"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="@+id/textView37" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:text="@{vm.bean.note}"
+                android:textColor="@color/textColorDarkThemeLight"
+                android:textSize="14sp"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#fff"
+                android:textSize="12sp"
+                android:text="@{TimeFormatUtil.formatFullTime(vm.bean.time)}"
+                binding:layout_constraintStart_toStartOf="@+id/textView37"
+                binding:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

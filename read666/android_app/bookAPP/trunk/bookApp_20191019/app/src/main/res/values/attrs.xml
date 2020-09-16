@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TwinklingRefreshLayout">
+        <attr name="tr_wave_height" format="dimension" />
+        <attr name="tr_head_height" format="dimension" />
+        <attr name="tr_bottom_height" format="dimension" />
+        <attr name="tr_overscroll_height" format="dimension" />
+        <attr name="tr_enable_loadmore" format="boolean" />
+        <attr name="tr_pureScrollMode_on" format="boolean" />
+        <attr name="tr_show_overlay_refreshview" format="boolean" />
+        <attr name="tr_headerView" format="dimension" />
+        <attr name="tr_bottomView" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="toolbar">
+       <attr name="actionBarSize">80dp</attr>
+    </declare-styleable>
+    <declare-styleable name="CustomToolbar">
+        <attr name="leftButtonIcon" format="reference"/>
+        <attr name="isShowLeftButton" format="boolean"/>
+        <attr name="isShowRightButton" format="boolean"/>
+        <attr name="rightButtonIcon" format="reference"/>
+        <attr name="isShowSearchView" format="boolean"/>
+        <attr name="rightButtonText" format="string"/>
+        <attr name="toolbarTitle" format="string"/>
+        <attr name="inverseTitleColor" format="boolean"/>
+        <attr name="searchType" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomEditText">
+        <attr name="icon" format="reference"/>
+        <attr name="isSupportClear" format="boolean"/>
+        <attr name="isSupportVisible" format="boolean"/>
+        <attr name="isSupportSub" format="boolean"/>
+        <attr name="subName" format="string"/>
+        <attr name="hint" format="string"/>
+        <attr name="label" format="string"/>
+        <attr name="text" format="string"/>
+        <attr name="maxLength" format="integer"/>
+        <attr name="inputType" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="CustomImageButton">
+        <attr name="btnIcon" format="reference"/>
+        <attr name="btnText" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="ExpandableLinearLayout">
+        <attr name="title" format="string"/>
+        <attr name="answersContent" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="XTabLayout">
+        <attr name="x_tabIndicatorAnimation" format="boolean" />
+        <attr name="x_tabIndicatorColor" format="color" />
+        <attr name="x_tabIndicatorHeight" format="dimension" />
+        <attr name="x_tabIndicatorWidth" format="dimension" />
+        <attr name="x_tabContentStart" format="dimension" />
+        <attr name="x_tabBackground" format="reference" />
+        <attr name="x_tabMode">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="x_tabGravity">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="x_tabMinWidth" format="dimension" />
+        <attr name="x_tabMaxWidth" format="dimension" />
+        <attr name="x_tabTextAppearance" format="reference" />
+        <attr name="x_tabTextColor" format="color" />
+        <attr name="x_tabSelectedTextColor" format="color" />
+        <attr name="x_tabPaddingStart" format="dimension" />
+        <attr name="x_tabPaddingTop" format="dimension" />
+        <attr name="x_tabPaddingEnd" format="dimension" />
+        <attr name="x_tabPaddingBottom" format="dimension" />
+        <attr name="x_tabPadding" format="dimension" />
+        <attr name="x_indicatorMarginTop" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="XTabItem">
+        <attr name="android:text" />
+        <attr name="android:icon" />
+        <attr name="android:layout" />
+    </declare-styleable>
+
+    <declare-styleable name="ImageTextButton">
+        <attr name="itb_icon" format="reference" />
+        <attr name="itb_icon_size" format="dimension" />
+        <attr name="itb_text" format="string" />
+        <attr name="itb_text_color" format="color" />
+        <attr name="itb_text_size" format="dimension" />
+        <attr name="itb_icon_text_marggin" format="dimension" />
+        <attr name="itb_icon_position" format="enum">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="itb_bg" format="color" />
+        <attr name="itb_bg_pressed" format="color" />
+        <attr name="itb_bg_disabled" format="color" />
+        <attr name="itb_radius" format="dimension" />
+        <attr name="itb_padding" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="ImageTextView">
+        <attr name="drawableWidth_left" format="dimension"/>
+        <attr name="drawableHeight_left" format="dimension"/>
+        <attr name="drawableWidth_top" format="dimension"/>
+        <attr name="drawableHeight_top" format="dimension"/>
+        <attr name="drawableWidth_right" format="dimension"/>
+        <attr name="drawableHeight_right" format="dimension"/>
+        <attr name="drawableWidth_bottom" format="dimension"/>
+        <attr name="drawableHeight_bottom" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="radius" format="dimension" />
+        <attr name="left_top_radius" format="dimension" />
+        <attr name="right_top_radius" format="dimension" />
+        <attr name="right_bottom_radius" format="dimension" />
+        <attr name="left_bottom_radius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="RippleBackground">
+        <attr name="rb_color" format="color" />
+        <attr name="rb_strokeWidth" format="dimension"/>
+        <attr name="rb_radius" format="dimension"/>
+        <attr name="rb_duration" format="integer"/>
+        <attr name="rb_rippleAmount" format="integer"/>
+        <attr name="rb_scale" format="float"/>
+        <attr name="rb_type" format="enum">
+            <enum name="fillRipple" value="0"/>
+            <enum name="strokeRipple" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="RangeSeekbar">
+        <attr name="seekbarHeight" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="spaceBetween" format="dimension" />
+        <attr name="leftCursorBackground" format="reference" />
+        <attr name="rightCursorBackground" format="reference" />
+        <attr name="markTextArray" format="reference" />
+        <attr name="textColorNormal" format="color" />
+        <attr name="textColorSelected" format="color" />
+        <attr name="seekbarColorNormal" format="color" />
+        <attr name="seekbarColorSelected" format="color" />
+        <attr name="autoMoveDuration" format="integer" />
+    </declare-styleable>
+
+</resources>

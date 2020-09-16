@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center"
+    android:background="#F5F5F5"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:layout_height="50dp"
+        android:text="滕王面包店"
+        android:gravity="center"
+        android:textColor="#ff232122"
+        android:layout_centerVertical="true"
+
+        android:textSize="13sp"/>
+
+
+
+
+
+</LinearLayout>

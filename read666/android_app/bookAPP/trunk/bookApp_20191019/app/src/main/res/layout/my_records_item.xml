@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.bonusRecord.ListItemVM"/>
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:paddingVertical="16dp"
+android:paddingHorizontal="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/num(vm.bean.jifen)}"
+
+                android:textColor="@color/textPoint"
+                android:textSize="16sp"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@{vm.bean.goods_name}"
+                android:textColor="#3c3f46"
+                android:textSize="16sp"
+                binding:layout_constraintStart_toEndOf="@+id/imageView16"
+                binding:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+
+            <TextView
+                android:id="@+id/textView57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:layout_marginStart="8dp"
+                android:text="兑换成功"
+                android:textColor="#666"
+                android:textSize="16sp"
+                binding:layout_constraintStart_toEndOf="@+id/imageView16"
+                binding:layout_constraintTop_toTopOf="@+id/imageView16" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#fff"
+                android:text="@{vm.bean.desc}"
+                android:textSize="14sp"
+                binding:layout_constraintStart_toStartOf="@+id/textView37"
+                binding:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+            <ImageView
+                android:id="@+id/imageView16"
+                url="@{vm.bean.thumb}"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="parent"
+                binding:srcCompat="@color/dividerColorDarkThemeLight" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

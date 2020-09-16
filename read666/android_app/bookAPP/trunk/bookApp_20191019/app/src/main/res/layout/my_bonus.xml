@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+        <import type="com.tchy.syh.custom.CustomLineManagers"/>
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+        <variable
+            name="vm"
+            type="com.tchy.syh.my.bonus.ListVM"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:isShowRightButton="false"
+            binding:isShowSearchView="false"
+            binding:toolbarTitle="我的积分"
+            binding:isShowLeftButton="true"
+            binding:leftButtonIcon="@mipmap/back_black_small"
+
+            >
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:background="#fff"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:src="@mipmap/vip"
+                binding:layout_constraintBottom_toBottomOf="@+id/textView37"
+                binding:layout_constraintEnd_toStartOf="@+id/textView32"
+                binding:layout_constraintHorizontal_bias="0.5"
+                binding:layout_constraintHorizontal_chainStyle="packed"
+                binding:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:text="@{vm.bonus}"
+                android:textColor="@color/textPoint"
+                android:textSize="40sp"
+                binding:layout_constraintEnd_toStartOf="@+id/textView37"
+                binding:layout_constraintHorizontal_bias="0.5"
+                binding:layout_constraintHorizontal_chainStyle="packed"
+                binding:layout_constraintStart_toEndOf="@+id/imageView13"
+                binding:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="积分"
+                android:textColor="@color/textColorThemeLight"
+                android:textSize="20sp"
+                binding:layout_constraintBaseline_toBaselineOf="@id/textView32"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintHorizontal_bias="0.5"
+                binding:layout_constraintStart_toEndOf="@+id/textView32" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/borderedBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bordered_corner_grey_bg"
+                android:drawableLeft="@mipmap/shop"
+                android:drawablePadding="5dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="15dp"
+                binding:onClickCommand="@{vm.shopClick}"
+                android:paddingVertical="10dp"
+                android:text="积分商城"
+                android:textColor="#bbb"
+                android:textSize="14sp"
+                binding:layout_constraintEnd_toStartOf="@+id/button3"
+                binding:layout_constraintHorizontal_bias="0.5"
+                binding:layout_constraintHorizontal_chainStyle="packed"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/borderedBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/bordered_corner_grey_bg"
+                android:drawableLeft="@mipmap/list_red"
+                android:drawablePadding="5dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:text="兑换记录"
+                android:textColor="#bbb"
+                binding:onClickCommand="@{vm.recordsClick}"
+                android:textSize="14sp"
+                binding:layout_constraintBottom_toBottomOf="@+id/button2"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintHorizontal_bias="0.5"
+                binding:layout_constraintStart_toEndOf="@+id/button2"
+                binding:layout_constraintTop_toTopOf="@+id/button2" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+
+                android:layout_marginTop="16dp"
+                android:background="#ddd"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/button2" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:paddingHorizontal="8dp"
+                android:text="积分明细"
+                android:textColor="#ddd"
+                binding:layout_constraintBottom_toBottomOf="@+id/divider3"
+                binding:layout_constraintEnd_toEndOf="@+id/divider3"
+                binding:layout_constraintStart_toStartOf="@+id/divider3"
+                binding:layout_constraintTop_toTopOf="@+id/divider3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+
+                itemBinding="@{vm.itemBinding}"
+                items="@{vm.listItems}"
+                binding:layoutManager="@{LayoutManagers.linear()}"
+                binding:lineManager="@{CustomLineManagers.horizontal()}"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/textView42" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </LinearLayout>
+</layout>

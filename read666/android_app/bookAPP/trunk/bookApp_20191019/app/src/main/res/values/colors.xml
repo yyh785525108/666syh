@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#FFF</color>
+    <color name="colorPrimaryDark">#FFF</color>
+    <color name="colorAccent">#F76058</color>
+    <color name="colorAccentRipple">#22F76058</color>
+    <color name="colorAccentRippleInverse">#66ffffff</color>
+    <color name="textColor">#555</color>
+    <color name="textColorHint">#A0A0A0</color>
+    <color name="titleColor">#333</color>
+    <color name="transparent">#00ffffff </color>
+    <color name="colorPrimaryThemeLight">#FFF</color>
+    <color name="colorPrimaryDarkThemeLight">#66000000</color>
+    <color name="colorAccentThemeLight">#F76058</color>
+    <color name="textColorHintThemeLight">#bbb</color>
+    <color name="textColorThemeLight">#999</color>
+    <color name="dividerColorThemeLight">#eee</color>
+    <color name="dividerColorDarkThemeLight">#ddd</color>
+    <color name="colorAccentLightThemeLight">#FDA29C</color>
+    <color name="colorStepProgressChecked">#FDD436</color>
+    <color name="btnTextColorThemeLight">#666</color>
+    <color name="textColorDarkThemeLight">#AA202020</color>
+    <color name="textPoint">#F4B66C</color>
+    <color name="greyBg">#f8f8f8</color>
+
+    <color name="textColorInverseThemeLight">#FFF</color>
+    <color name="colorBackground">#d05959</color>
+    <color name="rippelColor">#0099CC</color>
+    <color name="TextGuanzhuColor">#3063CC</color>
+</resources>

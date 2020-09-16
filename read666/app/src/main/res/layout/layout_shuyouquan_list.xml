@@ -1,0 +1,97 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/pinglunLay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:id="@+id/jingcaiShupingLay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/blueImg"
+            android:layout_width="@dimen/dp_4"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/shape_corner_blue_line"/>
+
+
+        <TextView
+            android:id="@+id/shuyouTv"
+            android:layout_toRightOf="@+id/blueImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:gravity="center_vertical"
+            android:text="精彩书评"
+
+            android:textColor="#ff232122" />
+
+        <ImageView
+            android:id="@+id/jiantou2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_jiantou" />
+
+        <TextView
+            android:id="@+id/countTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/jiantou2"
+            android:gravity="center_vertical"
+            android:text="更多"
+            android:textColor="#ff999999" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_below="@+id/jingcaiShupingLay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#ffebebeb" />
+
+    <RelativeLayout
+        android:layout_below="@+id/line"
+        android:background="#ffffff"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listView"
+                android:layout_above="@+id/shuodianLay"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

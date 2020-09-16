@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.fav.collect.ListVM" />
+
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/toolbar_height"
+           android:background="@drawable/line_bottom_grey_dark_bg"
+           >
+           <ImageView
+               android:id="@+id/back"
+               android:layout_width="45dp"
+               android:layout_height="45dp"
+               android:padding="13dp"
+               android:src="@mipmap/back_black_big"
+               android:layout_centerVertical="true"
+               />
+           <com.astuetz.PagerSlidingTabStrip
+               android:id="@+id/tabs"
+               android:layout_width="wrap_content"
+               android:layout_height="@dimen/toolbar_height"
+               binding:pstsIndicatorColor="@color/colorAccentThemeLight"
+               binding:pstsIndicatorHeight="3dp"
+               binding:pstsTabTextSize="16sp"
+               binding:pstsTabTextColor="@color/tab_color"
+               android:layout_centerInParent="true"
+               >
+
+
+           </com.astuetz.PagerSlidingTabStrip>
+       </RelativeLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:items="@{vm.pageList}"
+            binding:itemBinding="@{vm.listPageBinding}"
+            binding:pageTitles="@{vm.pageTitles}"
+
+            >
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
+</layout>

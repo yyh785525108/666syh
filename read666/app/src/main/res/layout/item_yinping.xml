@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="16dp"
+        >
+        <com.yyh.read666.view.YuanjiaoImageView
+            android:id="@+id/thumb"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/yinping_logoimg"
+            android:scaleType="centerCrop"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title"
+                android:lines="1"
+                android:layout_toLeftOf="@+id/album_num"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="修行之路--张易发"
+                android:textColor="#ff232122"
+                android:textSize="15dp"/>
+            <TextView
+                android:id="@+id/album_num"
+                android:layout_alignTop="@+id/title"
+                android:layout_alignBottom="@+id/title"
+                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100集"
+                android:textColor="#ec7e27"
+                android:textSize="10dp"/>
+            <TextView
+                android:id="@+id/description"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="明心 见性 开悟 走修行之路，获智慧人生"
+                android:layout_below="@+id/title"
+                android:layout_alignLeft="@+id/title"
+                android:textColor="#ff999999"
+                android:textSize="11dp"/>
+
+
+            <TextView
+
+                android:id="@+id/view_num"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="100播放"
+                android:textSize="11dp"/>
+
+            <TextView
+                android:id="@+id/vipprice"
+                android:layout_alignTop="@+id/view_num"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginRight="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIP:免费"
+                android:textColor="#ec7e27"
+                android:textSize="11dp"/>
+            <TextView
+                android:id="@+id/price"
+                android:layout_alignTop="@+id/view_num"
+                android:layout_toLeftOf="@+id/vipprice"
+                android:layout_marginRight="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="价格:免费"
+                android:textSize="11dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/ViewColor" />
+
+</LinearLayout>

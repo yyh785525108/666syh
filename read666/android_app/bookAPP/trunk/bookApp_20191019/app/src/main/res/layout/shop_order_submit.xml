@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.tchy.syh.R"/>
+        <variable
+            name="vm"
+            type="com.tchy.syh.shopping.submit.SubmitVm"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.tchy.syh.custom.toolbar.CustomToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        binding:isShowRightButton="false"
+        binding:isShowSearchView="false"
+        binding:toolbarTitle="提交订单"
+        binding:isShowLeftButton="true"
+        binding:leftButtonIcon="@mipmap/back_black_small"
+
+        ></com.tchy.syh.custom.toolbar.CustomToolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
+        android:layout_below="@+id/toolbar"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@color/dividerColorThemeLight"
+                />
+          
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#3c3f46"
+                android:text="请填写收货地址"
+                binding:onClickCommand="@{vm.addressClick}"
+                android:drawableLeft="@mipmap/cplus"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="21dp"
+                android:visibility="@{vm.address==null?0:8}"
+                android:textSize="14sp"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{vm.address!=null?0:8}"
+                binding:onClickCommand="@{vm.addressClick}"
+
+                android:padding="@dimen/horizontal_edge_space">
+                <TextView
+                    android:id="@+id/mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#3c3f46"
+                    android:text="@{vm.address.mobile}"
+                    android:layout_toRightOf="@+id/name"
+                    android:layout_marginLeft="10dp"
+
+                    />
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#3c3f46"
+                    android:text="@{vm.address.consignee}"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#3c3f46"
+                    android:drawableLeft="@mipmap/loc"
+                    android:drawablePadding="5dp"
+                    android:layout_below="@+id/name"
+                    android:layout_marginTop="10dp"
+                    android:text="@{vm.address.address}"
+                    />
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="18dp"
+                        android:src="@mipmap/forward_black_big"
+                        android:layout_alignParentRight="true"
+
+                        android:layout_centerVertical="true"
+
+                        />
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/wave_border"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+
+                android:paddingVertical="16dp">
+
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@{vm.bean.title}"
+                    android:textColor="#3c3f46"
+                    android:textSize="16sp"
+                    binding:layout_constraintStart_toEndOf="@+id/imageView15"
+                    binding:layout_constraintTop_toTopOf="@+id/imageView15" />
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.price}"
+                    android:textColor="#ec4249"
+                    android:textSize="12sp"
+                    binding:layout_constraintStart_toStartOf="@+id/textView43"
+                    binding:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="x1"
+                    android:textColor="#999"
+                    android:textSize="11sp"
+                    binding:layout_constraintBaseline_toBaselineOf="@+id/textView44"
+                    binding:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView48"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minHeight="40dp"
+                    android:text="@{vm.bean.desc}"
+                    android:textColor="#999"
+                    android:textSize="12sp"
+                    binding:layout_constraintEnd_toEndOf="parent"
+                    binding:layout_constraintStart_toStartOf="@+id/textView43"
+                    binding:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="76dp"
+                    android:layout_height="93dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    binding:layout_constraintBottom_toBottomOf="parent"
+                    binding:layout_constraintStart_toStartOf="parent"
+                    binding:layout_constraintTop_toTopOf="parent"
+                    url="@{vm.bean.thumb}" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#f5f5f5"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="12dp"
+                android:orientation="horizontal"
+                android:background="@drawable/line_bottom_grey_bg"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3c3f46"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:text="购买数量"
+                    />
+                <TextView
+                    android:id="@+id/plus"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    binding:onClickCommand="@{vm.plus}"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="14sp"
+                    isThrottleFirst="@{true}"
+
+                    android:background="@drawable/plus_selector"
+                    android:layout_alignParentRight="true"
+                    />
+                <TextView
+                    android:id="@+id/item_num"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="14sp"
+                    android:text="@{@string/num(vm.num)}"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="@dimen/horizontal_edge_space"
+                    android:layout_toLeftOf="@+id/plus"
+                    />
+                <TextView
+                    android:id="@+id/mins"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:textColor="@color/textColorThemeLight"
+                    android:textSize="13sp"
+                    binding:onClickCommand="@{vm.mins}"
+                    isThrottleFirst="@{true}"
+                    android:enabled="@{vm.num>1}"
+                    android:background="@drawable/mins_selector"
+                    android:layout_toLeftOf="@+id/item_num"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="16dp"
+                android:orientation="horizontal"
+                android:background="@drawable/line_bottom_grey_bg"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3c3f46"
+                    android:textSize="14sp"
+                    android:text="配送方式"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3c3f46"
+                    android:textSize="14sp"
+                    android:text="快递 免邮"
+                    android:layout_alignParentRight="true"
+                    />
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_edge_space"
+                android:paddingVertical="16dp"
+                android:orientation="horizontal"
+                android:background="@drawable/line_bottom_grey_bg"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3c3f46"
+                    android:textSize="14sp"
+                    android:text="买家留言："
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#3c3f46"
+                    android:textSize="14sp"
+                    android:background="@null"
+                    android:text="@={vm.comment}"
+                    android:hint="选填:填写内容已和卖家协商确认"
+                    />
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@color/dividerColorThemeLight"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line_bottom_grey_bg"
+                android:paddingVertical="16dp"
+                android:text="支付方式"
+                android:textSize="14sp"
+                android:textColor="#3c3f46"
+                android:paddingLeft="@dimen/horizontal_edge_space"
+                />
+            <RadioGroup
+                android:id="@+id/group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                onCheckedChangedCommand="@{vm.typeChange}"
+                >
+
+
+
+
+                <RadioButton
+                    android:id="@+id/bonusPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="积分兑换"
+                    android:button="@null"
+                    android:background="@null"
+                    android:checked="true"
+                    android:layout_marginHorizontal="16dp"
+                    drawLeft="@{R.mipmap.bonuspay}"
+                    imgSize="@{24}"
+                    android:drawablePadding="20dp"
+                    android:drawableRight="@drawable/radio_checked"
+                    android:textColor="@color/textColorDarkThemeLight"
+                    android:textSize="16sp"
+
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eee" />
+                <RadioButton
+                    android:id="@+id/wechatPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="微信支付"
+                    android:button="@null"
+                    android:background="@null"
+                    android:layout_marginHorizontal="16dp"
+                    drawLeft="@{R.mipmap.wechatpay}"
+                    imgSize="@{24}"
+                    android:drawablePadding="20dp"
+                    android:drawableRight="@drawable/radio_default"
+                    android:textColor="@color/textColorDarkThemeLight"
+                    android:textSize="16sp"
+
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eee" />
+                <RadioButton
+                    android:id="@+id/alipay"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:button="@null"
+                    android:background="@null"
+                    android:text="支付宝支付"
+                    drawLeft="@{R.mipmap.alipay}"
+                    imgSize="@{24}"
+                    android:layout_marginHorizontal="16dp"
+                    android:drawablePadding="20dp"
+
+                    android:drawableRight="@drawable/radio_default"
+
+                    android:textColor="@color/textColorDarkThemeLight"
+                    android:textSize="16sp"
+
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eee" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingHorizontal="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorAccentThemeLight"
+            android:textColor="@color/textColorInverseThemeLight"
+            android:text="提交订单"
+            binding:onClickCommand="@{vm.submitClick}"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/totalMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@{vm.totalMoney}"
+            android:gravity="center"
+            android:layout_marginRight="12dp"
+            android:textColor="#ec4249"
+            android:layout_toLeftOf="@+id/submit"
+            android:textSize="14sp"
+            android:layout_alignParentBottom="true"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="合计金额："
+                android:layout_marginRight="8dp"
+                android:textColor="#3c3f46"
+                android:layout_toLeftOf="@+id/totalMoney"
+                android:layout_alignParentBottom="true"
+                android:textSize="16sp"
+                />
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+
+
+</layout>

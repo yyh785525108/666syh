@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.orders.ListItemVM"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"
+        android:padding="16dp">
+
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+
+            android:background="#ddd"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="parent"
+            url="@{vm.bean.thumb}" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{vm.bean.goods_name}"
+            android:textColor="#3c3f46"
+            android:textSize="16sp"
+            binding:layout_constraintStart_toEndOf="@+id/imageView14"
+            binding:layout_constraintTop_toTopOf="@+id/imageView14" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{vm.bean.desc}"
+            android:textColor="@color/textColorThemeLight"
+            android:textSize="12sp"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toStartOf="@+id/textView43"
+            binding:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="@{@string/goodnum(vm.bean.num)}"
+            android:textSize="12sp"
+            binding:layout_constraintBottom_toBottomOf="@+id/imageView14"
+            binding:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/dividerColorThemeLight"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toEndOf="@+id/imageView14"
+            binding:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{vm.totalVal}"
+            android:textColor="@color/textColorDarkThemeLight"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/dividerColorThemeLight"
+            android:visibility='@{vm.bean.shipping_status.equals("1")?0:8}'
+
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bordered_big_corner_red_bg"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="5dp"
+            android:text="确认收货"
+            android:textColor="#ec4249"
+            android:visibility='@{vm.bean.shipping_status.equals("1")?0:8}'
+            android:clickable="true"
+            app:onClickCommand="@{vm.confirmClick}"
+            binding:layout_constraintBottom_toBottomOf="parent"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

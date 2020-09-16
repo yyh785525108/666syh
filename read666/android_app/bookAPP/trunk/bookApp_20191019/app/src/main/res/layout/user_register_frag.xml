@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.tchy.syh.custom.edittext.CustomEditText" />
+
+        <variable
+            name="vm"
+            type="com.tchy.syh.userAccount.register.RegisterVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.tchy.syh.custom.toolbar.CustomToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:leftButtonIcon="@mipmap/back_black_small"
+        app:toolbarTitle="注册"
+        >
+
+
+    </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/horizontal_edge_space"
+            android:paddingLeft="@dimen/horizontal_edge_space"
+            android:paddingRight="@dimen/horizontal_edge_space"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="40dp"
+                android:src="@mipmap/register"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+
+                app:hint="@string/mobile"
+                app:icon="@mipmap/user_icon"
+                app:inputType="number"
+                app:isSupportSub="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:maxLength="11"
+                app:text="@{vm.userName}" />
+
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_verify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+
+                app:hint="@string/verify_code"
+                app:icon="@mipmap/verify_code"
+                app:inputType="text"
+                app:isSupportSub="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:maxLength="6"
+                app:text="@{vm.verifyCode}" />
+
+            <com.tchy.syh.custom.edittext.CustomEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                app:hint="@string/password"
+                app:icon="@mipmap/password"
+                app:inputType="password"
+                app:isSupportVisible="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:maxLength="20"
+                app:text="@{vm.password}" />
+
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                >
+            <CheckBox
+                android:theme="@style/CheckboxCustom"
+                android:id="@+id/cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我已阅读并接受"
+                android:checked="@{vm.isAgree}"
+                android:textColor="#555"
+                app:layout_constraintEnd_toEndOf="@+id/et_password"
+                app:layout_constraintTop_toBottomOf="@+id/et_password" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ea2626"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:text="《用户协议》"
+                    app:onClickCommand="@{vm.gotoProtocal}"
+                    />
+            </LinearLayout>
+            <Button
+                android:id="@+id/button3"
+                style="@style/filledBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reg"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:onClickCommand="@{vm.register}" />
+
+
+
+
+
+
+        </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
+
+</layout>

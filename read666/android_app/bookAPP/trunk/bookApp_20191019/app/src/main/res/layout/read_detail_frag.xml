@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.read.detail.ReadDetailVm" />
+
+        <variable
+            name="vm"
+            type="ReadDetailVm" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+        <import type="com.tchy.syh.utils.NumberFormatUtil"/>
+        <import type="com.tchy.syh.R"/>
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/background_light"
+        android:fitsSystemWindows="true">
+
+        <com.tchy.syh.custom.toolbar.CustomToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:rightButtonIcon="@mipmap/share_black"
+            app:isShowRightButton="true"
+            android:background="@color/colorAccent"
+            app:rightClickCommand="@{vm.shareClick}"
+            app:layout_collapseMode="pin"
+            app:toolbarTitle="@{vm.bean.get().title}">
+
+
+        </com.tchy.syh.custom.toolbar.CustomToolbar>
+
+      <WebView
+          android:id="@+id/web"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@+id/toolbar"
+          android:layout_above="@+id/bottom"
+          ></WebView>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingHorizontal="@dimen/horizontal_edge_space"
+            android:paddingVertical="3dp"
+            android:background="@drawable/line_bottom_top_bg"
+
+            >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/back_black_small"
+                app:onClickCommand="@{vm.backClick}"
+                />
+            <TextView
+                android:id="@+id/recomment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:onClickCommand="@{vm.commentClick}"
+                android:text='@{NumberFormatUtil.format(vm.bean.comment_num,1000,"K+")}'
+                android:gravity="center"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/up"
+                android:drawableTint="@color/textColorThemeLight"
+                app:drawTop="@{R.mipmap.recomment}"
+                android:textSize="12sp"
+                app:imgSize="@{20}"
+                />
+            <TextView
+                android:id="@+id/up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text='@{NumberFormatUtil.format(vm.upNum,1000,"K+")}'
+                android:gravity="center"
+                app:onClickCommand="@{vm.upClick}"
+                app:tintColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                android:layout_centerVertical="true"
+                android:textColor="@{vm.isUp==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                app:drawTop="@{R.mipmap.right_up}"
+                android:textSize="12sp"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@+id/collect"
+                app:imgSize="@{20}"
+                />
+            <TextView
+                android:id="@+id/collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tintColor="@{vm.isCollect==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                android:layout_centerVertical="true"
+                android:text='@{NumberFormatUtil.format(vm.collectNum,1000,"K+")}'
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:textSize="12sp"
+                android:textColor="@{vm.isCollect==1?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+                app:onClickCommand="@{vm.collectClick}"
+                android:drawableTop="@mipmap/star_red_bold"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</layout>

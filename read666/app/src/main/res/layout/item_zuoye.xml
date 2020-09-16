@@ -1,0 +1,66 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginTop="8dp"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/thumb"
+                android:layout_marginLeft="6dp"
+                android:layout_width="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher" />
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:text="做最好的自己做最好的自己做最好的自己做最好的自己"
+                android:textColor="#ff232122"
+                android:textStyle="bold"
+                android:lines="1"
+                android:layout_toRightOf="@+id/thumb"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/desTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameTv"
+                android:layout_alignLeft="@+id/nameTv"
+                android:layout_marginTop="6dp"
+                android:text="0人阅读  0人收藏"
+                android:textColor="#ff999999"
+                android:lines="1"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp" />
+
+
+
+
+
+        </RelativeLayout>
+
+    <View
+        android:visibility="gone"
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffebebeb" />
+
+</LinearLayout>

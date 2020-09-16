@@ -1,0 +1,437 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
+    android:id="@+id/videoDesLay"
+    android:paddingBottom="12dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/goodLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/ViewColor" />
+        <LinearLayout
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/goodImg"
+                android:layout_gravity="center_vertical"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="centerCrop"
+                />
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/goodNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text=""
+                android:textColor="#ff232122"
+                android:textSize="15dp" />
+
+            <TextView
+
+                android:id="@+id/goodPriceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/goodNameTv"
+                android:layout_alignLeft="@+id/goodNameTv"
+                android:layout_marginTop="12dp"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="#FF7442"
+                android:textSize="12dp" />
+
+            <Button
+                android:id="@+id/buyBtn"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_32"
+                android:textColor="#FF7442"
+                android:background="@drawable/shape_corner_reban"
+
+                android:layout_marginRight="@dimen/dp_12"
+                android:text="立即购买"/>
+.
+
+        </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/ViewColor" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:paddingTop="@dimen/dp_12"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text=""
+            android:textColor="#FF161616"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:src="@drawable/book_huo_p"
+            />
+        <TextView
+            android:id="@+id/authorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1+万播放 / 周文强"
+            android:layout_marginLeft="4dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/rebanTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="热榜 NO.1>"
+            android:textColor="#FF7442"
+            android:padding="2dp"
+            android:background="@drawable/shape_corner_reban"
+            android:layout_marginLeft="16dp"
+            android:textSize="11dp" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="11dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/star_on" />
+
+        <TextView
+            android:id="@+id/pingfenTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="10分"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/descriptionTv"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="  "
+        android:textColor="@android:color/darker_gray"
+        android:textSize="11dp" />
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/viewsLay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/book_comment_n" />
+
+            <TextView
+                android:id="@+id/commentsTv"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shujiaLay"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/shujiaImg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/book_colect_btns" />
+            <TextView
+                android:layout_marginTop="4dp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="书架"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10dp" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dianzanLay"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/dianZanImg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/love_btns" />
+
+            <TextView
+                android:id="@+id/dianzanTv"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="1"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10dp" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/hongbaoLay"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/hongbao" />
+            <TextView
+                android:id="@+id/viewsTv"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打赏"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10dp" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--选集-->
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:id="@+id/is_albumLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="选集"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#ff232122" />
+
+            <ImageView
+                android:id="@+id/jiantou2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_jiantou" />
+
+            <TextView
+                android:id="@+id/album_countTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/jiantou2"
+                android:gravity="center_vertical"
+                android:text="全10集"
+                android:textColor="#ff999999" />
+
+
+        </RelativeLayout>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_margin="5dp" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
+
+                <GridView
+                    android:id="@+id/grid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:numColumns="auto_fit"
+                    android:scrollbars="none"
+                    android:stretchMode="spacingWidthUniform" >
+                </GridView>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/totolLay"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/totalCountTv"
+            android:text="0人正在同你一起观看"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/wanboTv"
+            android:text="0人已看完"
+            android:layout_marginTop="6dp"
+            android:layout_below="@+id/totalCountTv"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/jiantou"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_jiantou" />
+        <RelativeLayout
+            android:layout_toLeftOf="@+id/jiantou"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/dp_120"
+            android:gravity="right"
+            android:layout_height="wrap_content">
+            <com.yyh.read666.view.CircleImageView
+                android:id="@+id/guankanImg4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_launcher"
+            />
+
+            <com.yyh.read666.view.CircleImageView
+                android:id="@+id/guankanImg3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="-12dp"
+                android:layout_toRightOf="@+id/guankanImg4"
+                android:src="@drawable/ic_launcher" />
+            <com.yyh.read666.view.CircleImageView
+                android:id="@+id/guankanImg2"
+                android:layout_toRightOf="@+id/guankanImg3"
+                android:layout_marginLeft="-12dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_launcher"
+                />
+            <com.yyh.read666.view.CircleImageView
+                android:id="@+id/guankanImg1"
+                android:layout_toRightOf="@+id/guankanImg2"
+                android:layout_marginLeft="-12dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_launcher"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

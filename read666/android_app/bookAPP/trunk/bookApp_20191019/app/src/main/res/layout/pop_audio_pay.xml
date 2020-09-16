@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/cover"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="16dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+    <TextView
+        android:id="@+id/main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_back"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@id/cover"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="收费学习内容"
+        android:textColor="#ff232122"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_back"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="48dp"
+        android:layout_toRightOf="@id/cover"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="每日一听"
+        android:textColor="#FF6A6A6A"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_marginTop="16dp"
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/cover"
+        android:background="#e8ebf2" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/line"
+        android:gravity="center_vertical"
+        android:inputType="phone"
+        android:textSize="18sp"
+        android:background="@null"
+        android:hint="请输入手机号码，方便售后" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/phone"
+        android:background="#e8ebf2" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
+        android:text="立即购买" />
+</RelativeLayout>

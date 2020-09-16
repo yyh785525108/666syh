@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        >
+        <Button
+            android:id="@+id/back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:background="@drawable/return_btn" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+
+            android:layout_width="@dimen/dp_108"
+            android:layout_height="@dimen/dp_108"
+            android:src="@drawable/ic_launcher"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="666书友会"
+            android:textStyle="bold"
+            android:textSize="28dp"
+            android:textColor="#161616"
+            />
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="V2.9"
+            android:textSize="13sp"
+            android:textColor="#ff999999"
+            />
+        <RelativeLayout
+            android:id="@+id/lianxiLay"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/lay_color">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/img3"
+                android:text="联系我们"
+                android:textColor="#ff999999"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="4006711319"
+                android:textColor="#ff999999"
+                android:src="@drawable/icon_jiantou" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/xieyiLay"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/lay_color">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/img3"
+                android:text="用户协议"
+                android:textColor="#ff999999"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_jiantou" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/yinsiLay"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/lay_color">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/img3"
+                android:text="隐私政策"
+                android:textColor="#ff999999"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_jiantou" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/versionLay"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/lay_color">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/img3"
+                android:text="版本更新"
+                android:textColor="#ff999999"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_jiantou" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/img3"
+        android:text="\@ 2020 666书友会公司版权所有"
+        android:textColor="#ff999999"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:textSize="14sp" />
+
+</RelativeLayout>

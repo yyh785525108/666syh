@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tchy.syh.listen.ListenItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13.5dp"
+        android:layout_marginRight="13.5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        binding:cardCornerRadius="10dp"
+        app:cardElevation="0.5dp"
+        binding:onClickCommand="@{viewModel.itemClick}">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/iv_new_book"
+                android:layout_width="77.4dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:src="@{viewModel.drawableImg}"
+                binding:url="@{viewModel.listenItemEntity.thumb}" />
+
+            <ImageView
+                android:layout_width="19.8dp"
+                android:layout_height="19.8dp"
+                android:layout_alignRight="@+id/iv_new_book"
+                android:layout_alignBottom="@+id/iv_new_book"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@mipmap/play_white_2" />
+
+            <TextView
+                android:id="@+id/tv_new_book_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8.1dp"
+                android:layout_toRightOf="@id/iv_new_book"
+                android:lines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.listenItemEntity.title}"
+                android:textColor="#3c4046"
+                android:textSize="13.5sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_new_book_item_title"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="3.6dp"
+                android:ellipsize="end"
+                android:lines="2"
+                android:layout_toRightOf="@id/iv_new_book"
+                android:maxHeight="40.5dp"
+                android:text="@{viewModel.listenItemEntity.description}"
+                android:textColor="#848a95"
+                android:textSize="10.8sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_new_book"
+                android:layout_marginLeft="9dp"
+                android:layout_toRightOf="@id/iv_new_book"
+                android:text="@{viewModel.listenItemEntity.view_num+@string/subscribe}"
+                android:textColor="#ef434a"
+                android:textSize="10.8sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_new_book"
+                android:layout_alignParentRight="true"
+                android:text="@{viewModel.priceInfo}"
+                android:textColor="#3a4147"
+                android:textSize="10.8sp" />
+
+            <View
+                android:id="@+id/v_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/iv_new_book"
+                android:layout_marginTop="12dp"
+                android:background="#e7ebf1" />
+
+            <ImageView
+                android:layout_width="10.8dp"
+                android:layout_height="10.8dp"
+                android:layout_below="@id/v_divider"
+                android:layout_marginTop="14.4dp" />
+
+
+            <com.tchy.syh.listen.view.ImageTextButton
+                android:id="@+id/itb_album"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/v_divider"
+                android:layout_marginTop="10dp"
+                app:itb_bg="#00bf4e08"
+                app:itb_bg_pressed="#00bf4e08"
+                app:itb_icon="@mipmap/rect"
+                app:itb_icon_position="left"
+                app:itb_icon_size="10.8dp"
+                app:itb_icon_text_marggin="6dp"
+                app:itb_radius="8dp"
+                app:itb_text="@{viewModel.listenItemEntity.total_album+@string/album}"
+                app:itb_text_color="#858585"
+                app:itb_text_size="10.8sp" />
+
+            <com.tchy.syh.listen.view.ImageTextButton
+                android:layout_toRightOf="@id/itb_album"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/v_divider"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="10dp"
+                app:itb_bg="#00bf4e08"
+                app:itb_bg_pressed="#00bf4e08"
+                app:itb_icon_position="left"
+                app:itb_icon_size="10.8dp"
+                app:itb_icon_text_marggin="6dp"
+                app:itb_radius="8dp"
+                app:itb_text="@{viewModel.updateInfo}"
+                app:itb_text_color="#858585"
+                app:itb_text_size="10.8sp" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

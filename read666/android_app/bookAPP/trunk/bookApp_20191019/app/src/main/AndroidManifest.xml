@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    package="com.tchy.syh">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+
+    <application
+        android:name="com.tchy.syh.app.SophixStubApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:networkSecurityConfig="@xml/network_config"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeLight">
+
+        <activity
+            android:name=".userAccount.userLogin.LoginActivity"
+            android:label="@string/login_account"
+            android:theme="@style/AppThemeLight"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden">
+
+        </activity>
+        <activity
+            android:name="com.tchy.syh.home.HomeActivity"
+            android:theme="@style/AppThemeLight"/>
+        <activity
+            android:name="com.tchy.syh.base.CustomContainerActivity"
+            android:theme="@style/AppThemeLightInverse"/>
+        <activity android:name="com.tchy.syh.common.CommonWebViewActivity">
+
+
+        </activity>
+
+        <activity
+            android:name=".book.book_detail.BookVideoPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".listen.comment.AudioCommentActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".listen.comment.AudioCommentReplyActivity" android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.tchy.syh.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="android:theme" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="android:theme"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wx0a86121d5dea9203"/>
+            </intent-filter>
+
+
+        </activity>
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".WelcomActivity"
+            android:theme="@style/AppThemeLight"
+            android:resizeableActivity="true"
+        >
+
+        </activity>
+        <activity
+            android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".daily_advance.daily_home.DailyCommentActivity"/>
+
+        <activity
+            android:name=".listen.base.AdaptationContainerActivity" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="25055221-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="4b18a5fe1563bcfd3f54779159f88841" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCVnI2E+mWtznU82BYUyn+mGC6JegiI0E68EK/x3q2hooDxoi6qik1IwFDYkz/BKHDOrLeChXjnhzBigaHbblCy+P2RE3cyvWiwMJXXlmE9CUlnL8aH81ajahKYbgc4L5bt51o8vDJTFdC2l3rqB89zff+ZFMNqo2EszMMPTjsDLpRJ9yz3dOMWCsQWjywExZxXUb+W00BjRXGDV7BfpaXAUcIe1H8EpQDAh80ueRK1Yr3MOua6tdz4SNjXE5QF4Xd+SMhBR8cZvCdrjZ+mDuR4Dwm5KBo95Wkj2tZoxzXqVpV+VfB5oIEcM5HmhC4CIvDgt8+WYI+T1rS8Eu0E/zJdAgMBAAECggEAGjY1bSjZi5vyWliZdccMmjL+ZEOnHyEvyi86RCv5S6pG4Q7DEknsxGQ9RdR2hQbqzKrh89Iinp3G0ltX2jP3m4OYGUTJy2/32XaJqh3Ep4bq/1MVe1gcw8CfxWjxhtx/muq/moh2YKwfxv2/ISWBKQDYOR+0JQi+y7SMMDBKkoHgAfqpKi/qzrZVAqWXX60xR1RMO9ILjcpHRJAfpsMwNxs5+9QJ85stWE+4vKhhmD0AHgrMy9i+1VpmPzerZsL90KTf+YI6LBPxkvg8vQak5b1FaX59Y69hIRyMtxZgXy25mhiLA+sHe4Gexow4Nel5X01IKLwg7MYtyQfBCxLamQKBgQDMLQVmSqz9vpi4JpGK10JU73WSG2zx/pLDacbEwzMn6On6+OEE1WlQn43sPydOp69Zao+WNtaEb18q4Eih0H6AJMCZEV7/DFRGNeMTudwpuV5FxY+BziGE/gko5K3/S5WmoJRPaPJZqNMD+viVZ2AHMEpIDBoHq6dqFXS4LY8iLwKBgQC7lgpGojutiyVxzqreBFeaPsGQ9o4j8iVj+FB7FkCpOPCEDx6llHmxkTBvcOChqN2zmPE3IMzeqfjk6Mr6F3T35Jj7RifuIHGbwp/OeDq2i3N4kyWS/hWQkn7rdjTIccI1dWiwWYq3mmouC2fzWGqMYunGAzOK3924oZbkSnENMwKBgQCJz52EZMUM5DfanBXCm/ams5Yszxwi3sya32uNZZ/CwWAkyRXAmHdkNr2phxr16RLfDKDsKAl1DGM04nvD1KF9xtDEwEfZaK39UeP6bYngE8FA4M8zMznGtVzjYC7dUVwqQtq4GsLxp5T+a8ibt1HGqF6K8LglE0SFwwOsSPwCewKBgDFHtIFj42uvD3I7ifXzjBQQgoeTzjmxRpNhy7raWLhcJgt7cWCshd/ZNbFBJTIzC7M/7ba+3jNs0d9JLPHQscDiBDKW9qx/R3lVAuiZ+0qzje1SMt/P8lhdtAwlrK4v/IZQxuT1URT08woPowpx4uPopGOJucO1FimIAf0NdW+zAoGAYJPid8w33P4FSF6NAzkvIcZj90qJrcOLzzKWDUDVe4KTnmn3kVwRsAtNtPNSOQ8riTTIHyvgy9MUuDNrIFT5wVEJkHlHaKWJC7YahG9Xr2bjtotqojg1bbnF9TIWUyd4IxLDMneKwHI70+D1JMwfOdAWzlJG9OSrmkJp5+HOqNg=" />
+        <meta-data android:name = "android.max_aspect" android:value="2.1"/>
+        <provider
+            android:name=".common.CommonFileProvider"
+            android:authorities="com.tchy.syh.share"
+            android:exported="false"
+            tools:replace="android:authorities"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
+    </application>
+
+</manifest>

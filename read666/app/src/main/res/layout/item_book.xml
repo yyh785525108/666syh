@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="16dp"
+        >
+        <ImageView
+            android:id="@+id/thumb"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/yinping_logoimg"
+            android:scaleType="centerCrop"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title"
+                android:maxLength="10"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修行之路--张一发"
+                android:textColor="#ff232122"
+                android:textSize="16dp"/>
+            <TextView
+                android:id="@+id/description"
+                android:maxLines="3"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="明心 见性 开悟 走修行之路，获智慧人生"
+                android:lines="2"
+                android:layout_marginRight="4dp"
+                android:layout_below="@+id/title"
+                android:layout_alignLeft="@+id/title"
+                android:textColor="#ff999999"
+                android:textSize="12sp"/>
+
+
+            <TextView
+
+                android:id="@+id/add_time"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="2018.03.02上架"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/view_num"
+                android:layout_alignTop="@+id/add_time"
+                android:layout_toLeftOf="@+id/huo"
+                android:layout_marginRight="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.8万"
+                android:textColor="#ec7e27"
+                android:textSize="12dp"/>
+            <ImageView
+                android:id="@+id/huo"
+                android:layout_alignTop="@+id/add_time"
+                android:layout_alignBottom="@+id/add_time"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/huo"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:background="@color/ViewColor" />
+
+</LinearLayout>

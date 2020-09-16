@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.tchy.syh.shopping.address.ListItemVM"/>
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            app:onClickCommand="@{vm.select}"
+            android:orientation="vertical"
+
+            >
+
+
+            <TextView
+                android:id="@+id/textView52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@{vm.bean.mobile}"
+                android:textColor="#3c3f46"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@{vm.bean.consignee}"
+                android:textColor="#3c3f46"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{vm.bean.address}"
+                android:textColor="#3c3f46"
+                android:textSize="12sp"
+                binding:layout_constraintStart_toStartOf="@+id/textView53"
+                binding:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/dividerColorThemeLight"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/textView54" />
+
+            <TextView
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:textSize="14sp"
+                cChecked="@{vm.bean.is_default==1}"
+                direction="@{0}"
+                android:textColor="@color/textColorDarkThemeLight"
+                app:onClickCommand="@{vm.itemClick}"
+                android:drawableLeft="@drawable/radio"
+                android:drawablePadding="10dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="设为默认地址"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/divider8" />
+
+            <TextView
+                android:id="@+id/textView55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bordered_corner_grey_bg"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="5dp"
+                android:text="修改"
+                android:textColor="#3c3f46"
+                app:onClickCommand="@{vm.modifyClick}"
+                binding:layout_constraintBottom_toBottomOf="@+id/checkBox"
+                binding:layout_constraintEnd_toStartOf="@+id/textView56"
+                binding:layout_constraintTop_toTopOf="@+id/checkBox" />
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="删除"
+                app:onClickCommand="@{vm.delClick}"
+                android:background="@drawable/bordered_corner_grey_bg"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="24dp"
+                android:textColor="#3c3f46"
+                binding:layout_constraintBottom_toBottomOf="@+id/textView55"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintTop_toTopOf="@+id/textView55" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

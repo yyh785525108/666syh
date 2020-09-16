@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+<variable
+    name="vm"
+    type="me.goldze.mvvmhabit.base.BaseViewModel"/>
+
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@mipmap/helper_bg"
+            android:paddingBottom="30dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/toolbar_height"
+                >
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@mipmap/back_white"
+                    android:padding="13dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="19sp"
+                    android:textColor="#fff"
+                    android:text="帮助中心"
+                    android:layout_centerInParent="true"
+
+                    />
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="@color/white"
+                android:text="在线客服"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:text="人工服务时间：工作日9:00--18:00"
+                android:layout_marginTop="15dp"
+
+                />
+            <TextView
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
+                android:textColor="@color/white"
+                android:background="@drawable/bordered_corner_white_bg"
+                android:clickable="true"
+                android:text="立即咨询"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="常见问题"
+            android:textColor="#333"
+            android:paddingVertical="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="@dimen/horizontal_edge_space"
+
+            />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="积分有什么用呢？"
+                    app:answersContent="积分可以在APP的积分商城中兑换商品；从APP{我的}板块中可以进入积分商城。"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="怎么样才能获得积分"
+                    app:answersContent="在APP【我的】板块中 {任务中心} 完成任务即可获得积分。\n在APP【我的】板块中 每日累积 {签到} 即可获得积分"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="怎么才能查询到我的积分？"
+                    app:answersContent="您可以在APP【我的】板块中点击“我的积分”，即可看到积分变化详情"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="请问怎么买老师讲过的书籍呢？"
+                    app:answersContent="您可以在APP【我的】板块，点击“积分商城”，用积分或积分兑换代金卷的方式购买老师解读过的书籍。
+"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="如何查看我收藏的内容？"
+                    app:answersContent="您可以在APP【我的】板块中头像下边收藏查看收藏的内容。"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="如何获取推广大使二维码？"
+                    app:answersContent="您可以在APP【我的】板块中点击 {邀请好友加入} 获取推广二维码"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="成为推广大使有什么好处？"
+                    app:answersContent="每有1位好友扫描推广大使二维付费开通VIP后，推广大使可得600积分，开通VIP者可得60积分。积分可以在APP【我的】板块的 {积分商城} 中直接兑换商品。"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="没有成为VIP能成为书友会推广大使吗？"
+                    app:answersContent="可以，您只要在APP上登录注册，即可在APP【我的】板块点击{邀请好友加入} 获取您专属的推广大使二维码哦。"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="如何看到我的VIP有效期？"
+                    app:answersContent="您登录APP后，在APP【我的】板块 {VIP} 即可看到您的到期时间。
+"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="我用微信登录，我想在另一台手机上登录，我的账号和密码是什么呢？"
+                    app:answersContent="您可以在APP【我的】板块中右上角点击 {设置} – {账号与安全} 中绑定手机号设置密码
+"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="成为VIP用户，我将获得什么权益？"
+                    app:answersContent="1、一书一课（66本书）\n每年66本优质新书，图文、音频、视频解读\n2、悦享无阻\n享受往前会员专享内容自动解锁\n3、乐享积分\n积分兑换更多限量礼品\n4、优惠多多\n音频专栏一律1折起"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+                <com.tchy.syh.custom.ExpandableLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/horizontal_edge_space"
+                    app:title="如果我不是VIP用户可以在APP上浏览内容吗？"
+                    app:answersContent="可以的，在APP【解书】板块中有{限时免费}区；【听吧】中的每日一听；及【阅读】的文章都可免费浏览。"
+                    android:orientation="vertical"
+                    android:background="@drawable/line_top_grey_bg"
+                    >
+
+
+                </com.tchy.syh.custom.ExpandableLinearLayout>
+            </LinearLayout>
+
+
+    </ScrollView>
+    </LinearLayout>
+</layout>

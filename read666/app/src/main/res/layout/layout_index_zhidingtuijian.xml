@@ -1,0 +1,128 @@
+<LinearLayout
+    android:id="@+id/zhidingTuijieLay"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_marginTop="8dp"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/week_updateLay"
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+
+        <ImageView
+            android:id="@+id/blueImg"
+            android:layout_width="@dimen/dp_4"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/shape_corner_blue_line"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/blueImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:text="老师指定推荐"
+            android:textColor="#FF333333" />
+
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ViewColor" />
+
+    <LinearLayout
+        android:id="@+id/benzhouLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/benzhouImg"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/yinping_logoimg" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/benzhouNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:text="做最好的自己"
+                android:textSize="15dp"
+                android:textColor="#FF333333" />
+
+            <TextView
+                android:id="@+id/benzhouContentTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/benzhouNameTv"
+                android:layout_alignLeft="@+id/benzhouNameTv"
+                android:layout_marginTop="4dp"
+                android:text="明心见性开悟走修行之路，获智慧人生"
+                android:textColor="#ff838383"
+                android:textSize="12dp" />
+
+
+            <TextView
+                android:id="@+id/benzhouTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="6dp"
+                android:text="2019.03.03上架"
+                android:textColor="#ff838383"
+                android:textSize="10dp" />
+            <ImageView
+                android:id="@+id/huo1"
+                android:visibility="invisible"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/benzhouTimeTv"
+                android:layout_marginRight="12dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/huo" />
+            <TextView
+                android:layout_alignTop="@+id/benzhouTimeTv"
+
+                android:id="@+id/benzhouCountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/huo1"
+                android:text="123456"
+                android:layout_marginTop="1dp"
+
+                android:textColor="#ff838383"
+                android:textSize="11dp" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

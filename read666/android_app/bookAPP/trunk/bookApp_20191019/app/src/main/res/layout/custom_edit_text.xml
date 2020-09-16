@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.tchy.syh.custom.edittext.CustomEditTextVM" />
+
+</data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:minHeight="60dp">
+    <View
+        android:id="@+id/underline"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@{!vm.onFocus?@color/textColorHintThemeLight:@color/colorAccentThemeLight}"
+        android:layout_marginTop="@dimen/customEditMargin"
+        android:layout_below="@+id/et"
+        />
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/underline"
+        android:layout_marginTop="2dp"
+        android:textSize="13sp"
+        android:textColor="#ea2626"
+        android:visibility="gone"
+        android:text="不能为空"
+        android:layout_marginLeft="@dimen/customEditMargin"
+        />
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/primaryEditIconSize"
+        android:layout_height="@dimen/primaryEditIconSize"
+        android:layout_marginLeft="@dimen/customEditMargin"
+        android:tint="@{vm.onFocus?@color/colorAccentThemeLight:@color/textColorThemeLight}"
+        android:src="@mipmap/account"
+         />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:text="用户邮箱"
+        android:layout_toRightOf="@+id/icon"
+        android:textColor="#333"
+        android:textSize="@dimen/primaryEditLabelSize"
+       />
+
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:paddingLeft="10dp"
+        android:background="@null"
+        android:text="@={vm.text}"
+        android:hint="请输入账号"
+        app:onFocusChangeCommand="@{vm.onEditFocusChangeCommand}"
+        android:layout_toRightOf="@+id/label"
+        android:layout_toLeftOf="@+id/subGroup"
+        android:singleLine="true"
+        android:textSize="@dimen/primaryEditTextSize"
+        />
+
+<LinearLayout
+    android:id="@+id/subGroup"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_above="@id/underline"
+    android:gravity="center_vertical"
+    android:layout_alignParentRight="true"
+    >
+
+    <ImageView
+        android:id="@+id/clear"
+        android:layout_width="@dimen/primaryEditIconSize"
+        android:layout_height="@dimen/primaryEditIconSize"
+        android:layout_marginRight="@dimen/customEditMargin"
+        android:visibility="@{vm.onFocus &amp;&amp;vm.isSupportClear?View.VISIBLE:View.INVISIBLE}"
+        app:onClickCommand="@{vm.clearUserNameOnClickCommand}"
+        android:src="@mipmap/clean_edit"
+         />
+    <ImageView
+        android:id="@+id/visible"
+        android:layout_width="@dimen/primaryEditIconSize"
+        android:layout_height="@dimen/primaryEditIconSize"
+        android:layout_marginRight="@dimen/customEditMargin"
+        app:onClickCommand="@{vm.passwordShowSwitchOnClickCommand}"
+        android:src="@mipmap/visible_password"
+
+        />
+    <Button
+
+        android:id="@+id/subBtn"
+        style="@style/borderedBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/customEditMargin"
+        android:minHeight="0dp"
+        android:paddingBottom="2dp"
+        android:enabled="@{vm.canGetVerifyCode}"
+        android:paddingTop="2dp"
+        app:onClickCommand="@{vm.getVerifyCodeOnClickCmd}"
+        android:text="@{vm.canGetVerifyCode?@string/get_verify_code:@string/counter(vm.counter)}"
+        android:textSize="14sp"
+ />
+
+</LinearLayout>
+
+
+
+</RelativeLayout>
+</layout>

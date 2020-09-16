@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.tchy.syh.common.CommonViewModel" />
+        <variable
+            name="vm"
+            type="com.tchy.syh.common.CommonViewModel"/>
+
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!--android:orientation="vertical"-->
+        <ImageView
+            android:id="@+id/iv_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:url="@{vm.src}"
+            app:onClickCommand="@{vm.clickCmd}"
+            />
+    </RelativeLayout>
+</layout>

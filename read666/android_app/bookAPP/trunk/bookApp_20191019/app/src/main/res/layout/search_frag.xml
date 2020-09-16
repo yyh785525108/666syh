@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.tchy.syh.R"/>
+        <variable
+            name="vm"
+            type="com.tchy.syh.search.SearchVM" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_height"
+    android:background="@drawable/line_bottom_grey_bg"
+    android:paddingHorizontal="@dimen/toolbar_margin"
+
+    >
+    <EditText
+        android:id="@+id/toolbar_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/customEditMargin"
+        android:layout_toLeftOf="@id/toolbar_title"
+        android:background="@drawable/searchbox_round_bg"
+        android:drawableLeft="@mipmap/search"
+        android:drawablePadding="@dimen/customEditMargin"
+        android:maxLines="1"
+        android:inputType="text"
+        android:gravity="left|center_vertical"
+        android:imeActionLabel="搜索"
+        android:text="@={vm.searchWords}"
+        android:hint="@string/search_hint"
+        android:imeOptions="actionSearch"
+        android:paddingLeft="@dimen/customEditMargin"
+        android:textSize="16sp"
+         />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:onClickCommand="@{vm.cancelClick}"
+        android:text="取消"
+        android:textColor="@color/textColorDarkThemeLight"
+        android:textSize="16sp"
+      />
+
+
+</RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/horizontal_edge_space"
+            android:paddingBottom="10dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

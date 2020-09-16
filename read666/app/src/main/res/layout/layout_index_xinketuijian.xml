@@ -1,0 +1,153 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="16dp"
+    android:background="@drawable/shape_corner_white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/xinkeLay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="22dp"
+            android:gravity="center_vertical"
+            android:text="新课推荐"
+            android:textColor="#ff232122"
+            android:textSize="16dp"/>
+
+        <ImageView
+            android:id="@+id/jiantou3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/jiantou3"
+            android:gravity="center_vertical"
+            android:text="更多"
+            android:textColor="#ff999999" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/ViewColor" />
+
+    <RelativeLayout
+        android:id="@+id/xinkeLay1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <com.yyh.read666.view.YuanjiaoImageView
+            android:id="@+id/tuijianImg"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher"/>
+        <RelativeLayout
+            android:layout_toRightOf="@+id/tuijianImg"
+            android:layout_alignTop="@+id/tuijianImg"
+            android:layout_alignBottom="@+id/tuijianImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tuijianNameTv"
+                android:text="测试测试测试测试测试测试"
+                android:textSize="15dp"
+                android:textColor="#ff232122"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/tuijianContentTv"
+                android:layout_below="@+id/tuijianNameTv"
+                android:maxLines="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="明心见性开悟走修行之路，明心见性开悟走修行之路明心见性开悟走修行之路明心见性开悟走修行之路获智慧人生"
+                android:textColor="#ff999999"
+                android:textSize="12dp" />
+
+            <LinearLayout
+
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/icon_audio2"/>
+                <TextView
+                    android:id="@+id/tuijianPlay_numTv"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="4dp"
+                    android:maxLines="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="11"
+                    android:textColor="#ff999999"
+                    android:textSize="11dp" />
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/icon_ji"/>
+                <TextView
+                    android:id="@+id/tuijianCountTv"
+
+                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="11"
+                    android:textColor="#ff999999"
+                    android:textSize="11dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

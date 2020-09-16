@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_edge_space">12dp</dimen>
+    <dimen name="toolbar_icon_size">40dp</dimen>
+    <dimen name="toolbar_height">45dp</dimen>
+    <dimen name="toolbar_margin">12dp</dimen>
+    <dimen name="input_left_icon_margin">4dp</dimen>
+    <dimen name="input_bottom_icon_margin">16dp</dimen>
+    <dimen name="icon_edittext_padding">30dp</dimen>
+    <dimen name="primaryBGCorners">5dp</dimen>
+    <dimen name="primaryBtnMinHeight">50dp</dimen>
+    <dimen name="primaryBtnTextSize">20sp</dimen>
+    <dimen name="primaryEditTextSize">15sp</dimen>
+    <dimen name="primaryEditLabelSize">15sp</dimen>
+    <dimen name="primaryTextSize">14sp</dimen>
+    <dimen name="primaryEditIconSize">17dp</dimen>
+    <dimen name="customEditMargin">15dp</dimen>
+    <dimen name="bottom_icon_size">20dp</dimen>
+
+    <dimen name="type_card_size">75dp</dimen>
+    <dimen name="rippleStrokeWidth">2dp</dimen>
+    <dimen name="rippleRadius">44dp</dimen>
+</resources>
+
